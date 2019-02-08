@@ -9,3 +9,7 @@ type IDependable interface {
 type IConstruct interface {
 	Node() ConstructNode
 }
+
+type IAddressingScheme interface {
+	AlocateAddress(addressComponents []string) string
+}

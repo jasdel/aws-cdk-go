@@ -51,7 +51,6 @@ func WrapLambdaWithHitCounter(stack cdk.Stack, id string, downstreamFn awslambda
 			"DOWNSTREAM_FUNCTION_NAME": downstreamFn.FunctionName(),
 			"HITS_TABLE_NAME":          table.TableName(),
 		},
-		// TODO add environment field
 	})
 
 	return handler

@@ -20,14 +20,17 @@ func Stack_TryFind(scope IConstruct) *bool { return jsii.B(false) }
 // StackProps provides the interface for StackProps_ datatype.
 type StackProps interface {
 	Env() Environment
+	NamingScheme() IAddressingScheme
 }
 
 // StackProps_ are properties.
 type StackProps_ struct {
-	Env_ Environment
+	Env_          Environment
+	NamingScheme_ IAddressingScheme
 }
 
-func (*StackProps_) Env() Environment { return nil }
+func (s StackProps_) Env() Environment                { return s.Env_ }
+func (s StackProps_) NamingScheme() IAddressingScheme { return s.NamingScheme_ }
 
 // Stack provides the subtyping interfaces for JSII Stack class.
 type Stack interface {
