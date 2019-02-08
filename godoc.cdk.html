@@ -1,0 +1,1578 @@
+<!--
+	Copyright 2009 The Go Authors. All rights reserved.
+	Use of this source code is governed by a BSD-style
+	license that can be found in the LICENSE file.
+-->
+<!--
+	Note: Static (i.e., not template-generated) href and id
+	attributes start with "pkg-" to make it impossible for
+	them to conflict with generated attributes (some of which
+	correspond to Go identifiers).
+-->
+
+	<script type='text/javascript'>
+	document.ANALYSIS_DATA = ;
+	document.CALLGRAPH = ;
+	</script>
+
+	
+		
+		<div id="short-nav">
+			<dl>
+			<dd><code>import "./cdk"</code></dd>
+			</dl>
+			<dl>
+			<dd><a href="#pkg-overview" class="overviewLink">Overview</a></dd>
+			<dd><a href="#pkg-index" class="indexLink">Index</a></dd>
+			
+			
+			</dl>
+		</div>
+		<!-- The package's Name is printed as title by the top-level template -->
+		<div id="pkg-overview" class="toggleVisible">
+			<div class="collapsed">
+				<h2 class="toggleButton" title="Click to show Overview section">Overview ▹</h2>
+			</div>
+			<div class="expanded">
+				<h2 class="toggleButton" title="Click to hide Overview section">Overview ▾</h2>
+				
+				
+			</div>
+		</div>
+
+		<div id="pkg-index" class="toggleVisible">
+		<div class="collapsed">
+			<h2 class="toggleButton" title="Click to show Index section">Index ▹</h2>
+		</div>
+		<div class="expanded">
+			<h2 class="toggleButton" title="Click to hide Index section">Index ▾</h2>
+
+		<!-- Table of contents for API; must be named manual-nav to turn off auto nav. -->
+			<div id="manual-nav">
+			<dl>
+			
+			
+			
+			
+				
+				<dd><a href="#App">type App</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#NewApp">func NewApp() *App</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#NewApp_AsBaseClass">func NewApp_AsBaseClass(jsiiID string) *App</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#NewApp_WithOverrides">func NewApp_WithOverrides(overrides App_Overrides) *App</a></dd>
+				
+				
+			
+				
+				<dd><a href="#App_Iface">type App_Iface</a></dd>
+				
+				
+			
+				
+				<dd><a href="#App_Overrides">type App_Overrides</a></dd>
+				
+				
+			
+				
+				<dd><a href="#Construct">type Construct</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#NewConstruct">func NewConstruct(scope Construct, id string) *Construct</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#NewConstruct_AsBaseClass">func NewConstruct_AsBaseClass(jsiiID string) *Construct</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#NewConstruct_WithOverrides">func NewConstruct_WithOverrides(scope Construct, id string, overrides Construct_Overrides) *Construct</a></dd>
+				
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#Construct.DependencyRoots">func (c *Construct) DependencyRoots() []IConstruct</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#Construct.IsConstruct">func (c *Construct) IsConstruct() bool</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#Construct.Node">func (c *Construct) Node() IConstruct</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#Construct.Prepare">func (c *Construct) Prepare()</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#Construct.ToString">func (c *Construct) ToString() string</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#Construct.Validate">func (c *Construct) Validate() []string</a></dd>
+				
+			
+				
+				<dd><a href="#ConstructNode">type ConstructNode</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#NewConstructNode">func NewConstructNode(host Construct_Iface, scope IConstruct, id string) *ConstructNode</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#NewConstructNode_AsBaseClass">func NewConstructNode_AsBaseClass(jsiiID string) *ConstructNode</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#NewConstructNode_WithOverrides">func NewConstructNode_WithOverrides(host Construct_Iface, scope IConstruct, id string, overrides ConstructNode_Override) *ConstructNode</a></dd>
+				
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#ConstructNode.AddChild">func (c *ConstructNode) AddChild(child IConstruct, childName string)</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#ConstructNode.AddDependency">func (c *ConstructNode) AddDependency(dependencies ...IDependable)</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#ConstructNode.AddError">func (c *ConstructNode) AddError(message string)</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#ConstructNode.AddInfo">func (c *ConstructNode) AddInfo(message string)</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#ConstructNode.AddMetadata">func (c *ConstructNode) AddMetadata(typeVal string, data jsii.Any, from *bool)</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#ConstructNode.AddWarning">func (c *ConstructNode) AddWarning(message string)</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#ConstructNode.Ancestors">func (c *ConstructNode) Ancestors(upTo Construct_Iface) IConstruct</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#ConstructNode.Children">func (c *ConstructNode) Children() []IConstruct</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#ConstructNode.FindAll">func (c *ConstructNode) FindAll(order ConstructOrder) IConstruct</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#ConstructNode.FindChild">func (c *ConstructNode) FindChild(path string) IConstruct</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#ConstructNode.FindDependencies">func (c *ConstructNode) FindDependencies() []Dependency</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#ConstructNode.FindReferences">func (c *ConstructNode) FindReferences() Token</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#ConstructNode.GetContext">func (c *ConstructNode) GetContext(key string) jsii.Any</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#ConstructNode.Host">func (c *ConstructNode) Host() Construct_Iface</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#ConstructNode.Id">func (c *ConstructNode) Id() string</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#ConstructNode.Lock">func (c *ConstructNode) Lock()</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#ConstructNode.Locked">func (c *ConstructNode) Locked() bool</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#ConstructNode.Metadata">func (c *ConstructNode) Metadata() []MetadataEntry</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#ConstructNode.Path">func (c *ConstructNode) Path() string</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#ConstructNode.PrepareTree">func (c *ConstructNode) PrepareTree()</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#ConstructNode.RecordReference">func (c *ConstructNode) RecordReference(refs ...Token)</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#ConstructNode.RequireContext">func (c *ConstructNode) RequireContext(key string) jsii.Any</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#ConstructNode.Required">func (c *ConstructNode) Required(props jsii.Any, name string) jsii.Any</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#ConstructNode.Resolve">func (c *ConstructNode) Resolve(obj jsii.Any) jsii.Any</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#ConstructNode.Scope">func (c *ConstructNode) Scope() IConstruct</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#ConstructNode.SetContext">func (c *ConstructNode) SetContext(key string, value jsii.Any)</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#ConstructNode.StringifyJson">func (c *ConstructNode) StringifyJson(obj jsii.Any) string</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#ConstructNode.ToTreeString">func (c *ConstructNode) ToTreeString(depth *jsii.Number) string</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#ConstructNode.TryFindChild">func (c *ConstructNode) TryFindChild(path string) IConstruct</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#ConstructNode.Typename">func (c *ConstructNode) Typename() string</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#ConstructNode.UniqueId">func (c *ConstructNode) UniqueId() string</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#ConstructNode.Unlock">func (c *ConstructNode) Unlock()</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#ConstructNode.ValidateTree">func (c *ConstructNode) ValidateTree() []ValidationError</a></dd>
+				
+			
+				
+				<dd><a href="#ConstructNode_Iface">type ConstructNode_Iface</a></dd>
+				
+				
+			
+				
+				<dd><a href="#ConstructNode_Override">type ConstructNode_Override</a></dd>
+				
+				
+			
+				
+				<dd><a href="#ConstructOrder">type ConstructOrder</a></dd>
+				
+				
+			
+				
+				<dd><a href="#Construct_Iface">type Construct_Iface</a></dd>
+				
+				
+			
+				
+				<dd><a href="#Construct_Overrides">type Construct_Overrides</a></dd>
+				
+				
+			
+				
+				<dd><a href="#Dependency">type Dependency</a></dd>
+				
+				
+			
+				
+				<dd><a href="#IConstruct">type IConstruct</a></dd>
+				
+				
+			
+				
+				<dd><a href="#IDependable">type IDependable</a></dd>
+				
+				
+			
+				
+				<dd><a href="#MetadataEntry">type MetadataEntry</a></dd>
+				
+				
+			
+				
+				<dd><a href="#Root">type Root</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#NewRoot">func NewRoot() *Root</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#NewRoot_AsBaseClass">func NewRoot_AsBaseClass(jsiiID string) *Root</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#NewRoot_WithOverrides">func NewRoot_WithOverrides(overrides Root_Overrides) *Root</a></dd>
+				
+				
+			
+				
+				<dd><a href="#Root_Iface">type Root_Iface</a></dd>
+				
+				
+			
+				
+				<dd><a href="#Root_Overrides">type Root_Overrides</a></dd>
+				
+				
+			
+				
+				<dd><a href="#Token">type Token</a></dd>
+				
+				
+			
+				
+				<dd><a href="#ValidationError">type ValidationError</a></dd>
+				
+				
+			
+			
+			</dl>
+			</div><!-- #manual-nav -->
+
+		
+
+		
+			<h3>Package files</h3>
+			<p>
+			<span style="font-size:90%">
+			
+				<a href="/src/target/app.go">app.go</a>
+			
+				<a href="/src/target/construct.go">construct.go</a>
+			
+				<a href="/src/target/construct_node.go">construct_node.go</a>
+			
+				<a href="/src/target/enums.go">enums.go</a>
+			
+				<a href="/src/target/interfaces.go">interfaces.go</a>
+			
+				<a href="/src/target/root.go">root.go</a>
+			
+				<a href="/src/target/types.go">types.go</a>
+			
+			</span>
+			</p>
+		
+		</div><!-- .expanded -->
+		</div><!-- #pkg-index -->
+
+		<div id="pkg-callgraph" class="toggle" style="display: none">
+		<div class="collapsed">
+			<h2 class="toggleButton" title="Click to show Internal Call Graph section">Internal call graph ▹</h2>
+		</div> <!-- .expanded -->
+		<div class="expanded">
+			<h2 class="toggleButton" title="Click to hide Internal Call Graph section">Internal call graph ▾</h2>
+			<p>
+			  In the call graph viewer below, each node
+			  is a function belonging to this package
+			  and its children are the functions it
+			  calls&mdash;perhaps dynamically.
+			</p>
+			<p>
+			  The root nodes are the entry points of the
+			  package: functions that may be called from
+			  outside the package.
+			  There may be non-exported or anonymous
+			  functions among them if they are called
+			  dynamically from another package.
+			</p>
+			<p>
+			  Click a node to visit that function's source code.
+			  From there you can visit its callers by
+			  clicking its declaring <code>func</code>
+			  token.
+			</p>
+			<p>
+			  Functions may be omitted if they were
+			  determined to be unreachable in the
+			  particular programs or tests that were
+			  analyzed.
+			</p>
+			<!-- Zero means show all package entry points. -->
+			<ul style="margin-left: 0.5in" id="callgraph-0" class="treeview"></ul>
+		</div>
+		</div> <!-- #pkg-callgraph -->
+
+		
+		
+		
+		
+			
+			
+			<h2 id="App">type <a href="/src/target/app.go?s=362:405#L10">App</a>
+				<a class="permalink" href="#App">&#xb6;</a>
+				
+				
+			</h2>
+			<p>
+App is a JSII class
+</p>
+
+			<pre>type App struct {
+    *<a href="#Root">Root</a>
+    <span class="comment">// contains filtered or unexported fields</span>
+}
+</pre>
+
+			
+
+			
+
+			
+			
+			
+
+			
+				
+				<h3 id="NewApp">func <a href="/src/target/app.go?s=475:493#L19">NewApp</a>
+					<a class="permalink" href="#NewApp">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func NewApp() *<a href="#App">App</a></pre>
+				<p>
+NewApp returns an initialized App.
+</p>
+
+				
+				
+			
+				
+				<h3 id="NewApp_AsBaseClass">func <a href="/src/target/app.go?s=679:722#L25">NewApp_AsBaseClass</a>
+					<a class="permalink" href="#NewApp_AsBaseClass">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func NewApp_AsBaseClass(jsiiID <a href="/pkg/builtin/#string">string</a>) *<a href="#App">App</a></pre>
+				<p>
+NewApp_AsBaseClass returns an initialized App initialized as a base type
+extended by another type. Used internally by generated JSII types.
+</p>
+
+				
+				
+			
+				
+				<h3 id="NewApp_WithOverrides">func <a href="/src/target/app.go?s=958:1013#L34">NewApp_WithOverrides</a>
+					<a class="permalink" href="#NewApp_WithOverrides">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func NewApp_WithOverrides(overrides <a href="#App_Overrides">App_Overrides</a>) *<a href="#App">App</a></pre>
+				<p>
+NewApp_WithOverrides returns an initialized App initialized with
+overrides. Use when creating custom types extending JSII generated types.
+</p>
+
+				
+				
+			
+
+			
+		
+			
+			
+			<h2 id="App_Iface">type <a href="/src/target/app.go?s=131:187#L1">App_Iface</a>
+				<a class="permalink" href="#App_Iface">&#xb6;</a>
+				
+				
+			</h2>
+			<p>
+App_Iface provides the subtyping interfaces for JSII App[ class.
+</p>
+
+			<pre>type App_Iface interface {
+    <a href="#Root_Iface">Root_Iface</a>
+    <span class="comment">// contains filtered or unexported methods</span>
+}</pre>
+
+			
+
+			
+
+			
+			
+			
+
+			
+
+			
+		
+			
+			
+			<h2 id="App_Overrides">type <a href="/src/target/app.go?s=305:337#L6">App_Overrides</a>
+				<a class="permalink" href="#App_Overrides">&#xb6;</a>
+				
+				
+			</h2>
+			<p>
+App_Overrides provides the interface for overriding methods of a generated
+JSII class within the JSII kernel.
+</p>
+
+			<pre>type App_Overrides interface {
+}</pre>
+
+			
+
+			
+
+			
+			
+			
+
+			
+
+			
+		
+			
+			
+			<h2 id="Construct">type <a href="/src/target/construct.go?s=630:671#L15">Construct</a>
+				<a class="permalink" href="#Construct">&#xb6;</a>
+				
+				
+			</h2>
+			<p>
+Construct is a JSII class.
+</p>
+
+			<pre>type Construct struct {
+    <span class="comment">// contains filtered or unexported fields</span>
+}
+</pre>
+
+			
+
+			
+
+			
+			
+			
+
+			
+				
+				<h3 id="NewConstruct">func <a href="/src/target/construct.go?s=765:821#L22">NewConstruct</a>
+					<a class="permalink" href="#NewConstruct">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func NewConstruct(scope <a href="#Construct">Construct</a>, id <a href="/pkg/builtin/#string">string</a>) *<a href="#Construct">Construct</a></pre>
+				<p>
+NewConstruct returns an initialized Construct.
+</p>
+
+				
+				
+			
+				
+				<h3 id="NewConstruct_AsBaseClass">func <a href="/src/target/construct.go?s=1232:1287#L40">NewConstruct_AsBaseClass</a>
+					<a class="permalink" href="#NewConstruct_AsBaseClass">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func NewConstruct_AsBaseClass(jsiiID <a href="/pkg/builtin/#string">string</a>) *<a href="#Construct">Construct</a></pre>
+				<p>
+NewConstruct_AsBaseClass returns an initialized Construct initialized as a
+base type extended by another type. Used internally by generated JSII types.
+</p>
+
+				
+				
+			
+				
+				<h3 id="NewConstruct_WithOverrides">func <a href="/src/target/construct.go?s=1504:1605#L48">NewConstruct_WithOverrides</a>
+					<a class="permalink" href="#NewConstruct_WithOverrides">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func NewConstruct_WithOverrides(scope <a href="#Construct">Construct</a>, id <a href="/pkg/builtin/#string">string</a>, overrides <a href="#Construct_Overrides">Construct_Overrides</a>) *<a href="#Construct">Construct</a></pre>
+				<p>
+NewConstruct_WithOverrides returns an initialized Construct initialized with
+overrides. Use when creating custom types extending JSII generated types.
+</p>
+
+				
+				
+			
+
+			
+				
+				<h3 id="Construct.DependencyRoots">func (*Construct) <a href="/src/target/construct.go?s=1864:1914#L64">DependencyRoots</a>
+					<a class="permalink" href="#Construct.DependencyRoots">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (c *<a href="#Construct">Construct</a>) DependencyRoots() []<a href="#IConstruct">IConstruct</a></pre>
+				
+				
+				
+				
+			
+				
+				<h3 id="Construct.IsConstruct">func (*Construct) <a href="/src/target/construct.go?s=1996:2034#L66">IsConstruct</a>
+					<a class="permalink" href="#Construct.IsConstruct">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (c *<a href="#Construct">Construct</a>) IsConstruct() <a href="/pkg/builtin/#bool">bool</a></pre>
+				
+				
+				
+				
+			
+				
+				<h3 id="Construct.Node">func (*Construct) <a href="/src/target/construct.go?s=1930:1967#L65">Node</a>
+					<a class="permalink" href="#Construct.Node">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (c *<a href="#Construct">Construct</a>) Node() <a href="#IConstruct">IConstruct</a></pre>
+				
+				
+				
+				
+			
+				
+				<h3 id="Construct.Prepare">func (*Construct) <a href="/src/target/construct.go?s=2121:2150#L69">Prepare</a>
+					<a class="permalink" href="#Construct.Prepare">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (c *<a href="#Construct">Construct</a>) Prepare()</pre>
+				<p>
+protected method, must be exposed go has no protected
+</p>
+
+				
+				
+				
+			
+				
+				<h3 id="Construct.ToString">func (*Construct) <a href="/src/target/construct.go?s=2188:2225#L72">ToString</a>
+					<a class="permalink" href="#Construct.ToString">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (c *<a href="#Construct">Construct</a>) ToString() <a href="/pkg/builtin/#string">string</a></pre>
+				<p>
+override to Go&#39;s &#34;String()&#34; ?
+</p>
+
+				
+				
+				
+			
+				
+				<h3 id="Construct.Validate">func (*Construct) <a href="/src/target/construct.go?s=2242:2281#L73">Validate</a>
+					<a class="permalink" href="#Construct.Validate">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (c *<a href="#Construct">Construct</a>) Validate() []<a href="/pkg/builtin/#string">string</a></pre>
+				
+				
+				
+				
+			
+		
+			
+			
+			<h2 id="ConstructNode">type <a href="/src/target/construct_node.go?s=1530:1575#L42">ConstructNode</a>
+				<a class="permalink" href="#ConstructNode">&#xb6;</a>
+				
+				
+			</h2>
+			
+			<pre>type ConstructNode struct {
+    <span class="comment">// contains filtered or unexported fields</span>
+}
+</pre>
+
+			
+
+			
+
+			
+			
+			
+
+			
+				
+				<h3 id="NewConstructNode">func <a href="/src/target/construct_node.go?s=1684:1771#L49">NewConstructNode</a>
+					<a class="permalink" href="#NewConstructNode">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func NewConstructNode(host <a href="#Construct_Iface">Construct_Iface</a>, scope <a href="#IConstruct">IConstruct</a>, id <a href="/pkg/builtin/#string">string</a>) *<a href="#ConstructNode">ConstructNode</a></pre>
+				<p>
+NewConstructNode returns an initialized ConstructNode.
+</p>
+
+				
+				
+			
+				
+				<h3 id="NewConstructNode_AsBaseClass">func <a href="/src/target/construct_node.go?s=2007:2070#L56">NewConstructNode_AsBaseClass</a>
+					<a class="permalink" href="#NewConstructNode_AsBaseClass">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func NewConstructNode_AsBaseClass(jsiiID <a href="/pkg/builtin/#string">string</a>) *<a href="#ConstructNode">ConstructNode</a></pre>
+				<p>
+NewConstructNode_AsBaseClass returns an initialized ConstructNode
+initialized as a base type extended by another type. Used internally by
+generated JSII types.
+</p>
+
+				
+				
+			
+				
+				<h3 id="NewConstructNode_WithOverrides">func <a href="/src/target/construct_node.go?s=2302:2437#L65">NewConstructNode_WithOverrides</a>
+					<a class="permalink" href="#NewConstructNode_WithOverrides">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func NewConstructNode_WithOverrides(host <a href="#Construct_Iface">Construct_Iface</a>, scope <a href="#IConstruct">IConstruct</a>, id <a href="/pkg/builtin/#string">string</a>, overrides <a href="#ConstructNode_Override">ConstructNode_Override</a>) *<a href="#ConstructNode">ConstructNode</a></pre>
+				<p>
+NewConstructNode_WithOverrides returns an initialized ConstructNode
+initialized with overrides. Use when creating custom types extending JSII
+generated types.
+</p>
+
+				
+				
+			
+
+			
+				
+				<h3 id="ConstructNode.AddChild">func (*ConstructNode) <a href="/src/target/construct_node.go?s=3554:3622#L90">AddChild</a>
+					<a class="permalink" href="#ConstructNode.AddChild">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (c *<a href="#ConstructNode">ConstructNode</a>) AddChild(child <a href="#IConstruct">IConstruct</a>, childName <a href="/pkg/builtin/#string">string</a>)</pre>
+				
+				
+				
+				
+			
+				
+				<h3 id="ConstructNode.AddDependency">func (*ConstructNode) <a href="/src/target/construct_node.go?s=3636:3702#L91">AddDependency</a>
+					<a class="permalink" href="#ConstructNode.AddDependency">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (c *<a href="#ConstructNode">ConstructNode</a>) AddDependency(dependencies ...<a href="#IDependable">IDependable</a>)</pre>
+				
+				
+				
+				
+			
+				
+				<h3 id="ConstructNode.AddError">func (*ConstructNode) <a href="/src/target/construct_node.go?s=3718:3766#L92">AddError</a>
+					<a class="permalink" href="#ConstructNode.AddError">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (c *<a href="#ConstructNode">ConstructNode</a>) AddError(message <a href="/pkg/builtin/#string">string</a>)</pre>
+				
+				
+				
+				
+			
+				
+				<h3 id="ConstructNode.AddInfo">func (*ConstructNode) <a href="/src/target/construct_node.go?s=3800:3847#L93">AddInfo</a>
+					<a class="permalink" href="#ConstructNode.AddInfo">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (c *<a href="#ConstructNode">ConstructNode</a>) AddInfo(message <a href="/pkg/builtin/#string">string</a>)</pre>
+				
+				
+				
+				
+			
+				
+				<h3 id="ConstructNode.AddMetadata">func (*ConstructNode) <a href="/src/target/construct_node.go?s=3882:3960#L94">AddMetadata</a>
+					<a class="permalink" href="#ConstructNode.AddMetadata">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (c *<a href="#ConstructNode">ConstructNode</a>) AddMetadata(typeVal <a href="/pkg/builtin/#string">string</a>, data <a href="/pkg/github.com/awslabs/aws-cdk-go/jsii/">jsii</a>.<a href="/pkg/github.com/awslabs/aws-cdk-go/jsii/#Any">Any</a>, from *<a href="/pkg/builtin/#bool">bool</a>)</pre>
+				
+				
+				
+				
+			
+				
+				<h3 id="ConstructNode.AddWarning">func (*ConstructNode) <a href="/src/target/construct_node.go?s=3964:4014#L95">AddWarning</a>
+					<a class="permalink" href="#ConstructNode.AddWarning">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (c *<a href="#ConstructNode">ConstructNode</a>) AddWarning(message <a href="/pkg/builtin/#string">string</a>)</pre>
+				
+				
+				
+				
+			
+				
+				<h3 id="ConstructNode.Ancestors">func (*ConstructNode) <a href="/src/target/construct_node.go?s=4046:4112#L96">Ancestors</a>
+					<a class="permalink" href="#ConstructNode.Ancestors">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (c *<a href="#ConstructNode">ConstructNode</a>) Ancestors(upTo <a href="#Construct_Iface">Construct_Iface</a>) <a href="#IConstruct">IConstruct</a></pre>
+				
+				
+				
+				
+			
+				
+				<h3 id="ConstructNode.Children">func (*ConstructNode) <a href="/src/target/construct_node.go?s=2710:2757#L81">Children</a>
+					<a class="permalink" href="#ConstructNode.Children">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (c *<a href="#ConstructNode">ConstructNode</a>) Children() []<a href="#IConstruct">IConstruct</a></pre>
+				
+				
+				
+				
+			
+				
+				<h3 id="ConstructNode.FindAll">func (*ConstructNode) <a href="/src/target/construct_node.go?s=4140:4204#L97">FindAll</a>
+					<a class="permalink" href="#ConstructNode.FindAll">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (c *<a href="#ConstructNode">ConstructNode</a>) FindAll(order <a href="#ConstructOrder">ConstructOrder</a>) <a href="#IConstruct">IConstruct</a></pre>
+				
+				
+				
+				
+			
+				
+				<h3 id="ConstructNode.FindChild">func (*ConstructNode) <a href="/src/target/construct_node.go?s=4234:4291#L98">FindChild</a>
+					<a class="permalink" href="#ConstructNode.FindChild">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (c *<a href="#ConstructNode">ConstructNode</a>) FindChild(path <a href="/pkg/builtin/#string">string</a>) <a href="#IConstruct">IConstruct</a></pre>
+				
+				
+				
+				
+			
+				
+				<h3 id="ConstructNode.FindDependencies">func (*ConstructNode) <a href="/src/target/construct_node.go?s=4328:4383#L99">FindDependencies</a>
+					<a class="permalink" href="#ConstructNode.FindDependencies">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (c *<a href="#ConstructNode">ConstructNode</a>) FindDependencies() []<a href="#Dependency">Dependency</a></pre>
+				
+				
+				
+				
+			
+				
+				<h3 id="ConstructNode.FindReferences">func (*ConstructNode) <a href="/src/target/construct_node.go?s=4422:4468#L100">FindReferences</a>
+					<a class="permalink" href="#ConstructNode.FindReferences">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (c *<a href="#ConstructNode">ConstructNode</a>) FindReferences() <a href="#Token">Token</a></pre>
+				
+				
+				
+				
+			
+				
+				<h3 id="ConstructNode.GetContext">func (*ConstructNode) <a href="/src/target/construct_node.go?s=4516:4571#L101">GetContext</a>
+					<a class="permalink" href="#ConstructNode.GetContext">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (c *<a href="#ConstructNode">ConstructNode</a>) GetContext(key <a href="/pkg/builtin/#string">string</a>) <a href="/pkg/github.com/awslabs/aws-cdk-go/jsii/">jsii</a>.<a href="/pkg/github.com/awslabs/aws-cdk-go/jsii/#Any">Any</a></pre>
+				
+				
+				
+				
+			
+				
+				<h3 id="ConstructNode.Host">func (*ConstructNode) <a href="/src/target/construct_node.go?s=2804:2850#L82">Host</a>
+					<a class="permalink" href="#ConstructNode.Host">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (c *<a href="#ConstructNode">ConstructNode</a>) Host() <a href="#Construct_Iface">Construct_Iface</a></pre>
+				
+				
+				
+				
+			
+				
+				<h3 id="ConstructNode.Id">func (*ConstructNode) <a href="/src/target/construct_node.go?s=2898:2933#L83">Id</a>
+					<a class="permalink" href="#ConstructNode.Id">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (c *<a href="#ConstructNode">ConstructNode</a>) Id() <a href="/pkg/builtin/#string">string</a></pre>
+				
+				
+				
+				
+			
+				
+				<h3 id="ConstructNode.Lock">func (*ConstructNode) <a href="/src/target/construct_node.go?s=4610:4640#L102">Lock</a>
+					<a class="permalink" href="#ConstructNode.Lock">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (c *<a href="#ConstructNode">ConstructNode</a>) Lock()</pre>
+				
+				
+				
+				
+			
+				
+				<h3 id="ConstructNode.Locked">func (*ConstructNode) <a href="/src/target/construct_node.go?s=2991:3028#L84">Locked</a>
+					<a class="permalink" href="#ConstructNode.Locked">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (c *<a href="#ConstructNode">ConstructNode</a>) Locked() <a href="/pkg/builtin/#bool">bool</a></pre>
+				
+				
+				
+				
+			
+				
+				<h3 id="ConstructNode.Metadata">func (*ConstructNode) <a href="/src/target/construct_node.go?s=3087:3137#L85">Metadata</a>
+					<a class="permalink" href="#ConstructNode.Metadata">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (c *<a href="#ConstructNode">ConstructNode</a>) Metadata() []<a href="#MetadataEntry">MetadataEntry</a></pre>
+				
+				
+				
+				
+			
+				
+				<h3 id="ConstructNode.Path">func (*ConstructNode) <a href="/src/target/construct_node.go?s=3181:3218#L86">Path</a>
+					<a class="permalink" href="#ConstructNode.Path">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (c *<a href="#ConstructNode">ConstructNode</a>) Path() <a href="/pkg/builtin/#string">string</a></pre>
+				
+				
+				
+				
+			
+				
+				<h3 id="ConstructNode.PrepareTree">func (*ConstructNode) <a href="/src/target/construct_node.go?s=4692:4729#L103">PrepareTree</a>
+					<a class="permalink" href="#ConstructNode.PrepareTree">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (c *<a href="#ConstructNode">ConstructNode</a>) PrepareTree()</pre>
+				
+				
+				
+				
+			
+				
+				<h3 id="ConstructNode.RecordReference">func (*ConstructNode) <a href="/src/target/construct_node.go?s=4774:4828#L104">RecordReference</a>
+					<a class="permalink" href="#ConstructNode.RecordReference">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (c *<a href="#ConstructNode">ConstructNode</a>) RecordReference(refs ...<a href="#Token">Token</a>)</pre>
+				
+				
+				
+				
+			
+				
+				<h3 id="ConstructNode.RequireContext">func (*ConstructNode) <a href="/src/target/construct_node.go?s=4856:4915#L105">RequireContext</a>
+					<a class="permalink" href="#ConstructNode.RequireContext">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (c *<a href="#ConstructNode">ConstructNode</a>) RequireContext(key <a href="/pkg/builtin/#string">string</a>) <a href="/pkg/github.com/awslabs/aws-cdk-go/jsii/">jsii</a>.<a href="/pkg/github.com/awslabs/aws-cdk-go/jsii/#Any">Any</a></pre>
+				
+				
+				
+				
+			
+				
+				<h3 id="ConstructNode.Required">func (*ConstructNode) <a href="/src/target/construct_node.go?s=4950:5020#L106">Required</a>
+					<a class="permalink" href="#ConstructNode.Required">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (c *<a href="#ConstructNode">ConstructNode</a>) Required(props <a href="/pkg/github.com/awslabs/aws-cdk-go/jsii/">jsii</a>.<a href="/pkg/github.com/awslabs/aws-cdk-go/jsii/#Any">Any</a>, name <a href="/pkg/builtin/#string">string</a>) <a href="/pkg/github.com/awslabs/aws-cdk-go/jsii/">jsii</a>.<a href="/pkg/github.com/awslabs/aws-cdk-go/jsii/#Any">Any</a></pre>
+				
+				
+				
+				
+			
+				
+				<h3 id="ConstructNode.Resolve">func (*ConstructNode) <a href="/src/target/construct_node.go?s=5044:5098#L107">Resolve</a>
+					<a class="permalink" href="#ConstructNode.Resolve">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (c *<a href="#ConstructNode">ConstructNode</a>) Resolve(obj <a href="/pkg/github.com/awslabs/aws-cdk-go/jsii/">jsii</a>.<a href="/pkg/github.com/awslabs/aws-cdk-go/jsii/#Any">Any</a>) <a href="/pkg/github.com/awslabs/aws-cdk-go/jsii/">jsii</a>.<a href="/pkg/github.com/awslabs/aws-cdk-go/jsii/#Any">Any</a></pre>
+				
+				
+				
+				
+			
+				
+				<h3 id="ConstructNode.Scope">func (*ConstructNode) <a href="/src/target/construct_node.go?s=3460:3502#L89">Scope</a>
+					<a class="permalink" href="#ConstructNode.Scope">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (c *<a href="#ConstructNode">ConstructNode</a>) Scope() <a href="#IConstruct">IConstruct</a></pre>
+				
+				
+				
+				
+			
+				
+				<h3 id="ConstructNode.SetContext">func (*ConstructNode) <a href="/src/target/construct_node.go?s=5138:5200#L108">SetContext</a>
+					<a class="permalink" href="#ConstructNode.SetContext">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (c *<a href="#ConstructNode">ConstructNode</a>) SetContext(key <a href="/pkg/builtin/#string">string</a>, value <a href="/pkg/github.com/awslabs/aws-cdk-go/jsii/">jsii</a>.<a href="/pkg/github.com/awslabs/aws-cdk-go/jsii/#Any">Any</a>)</pre>
+				
+				
+				
+				
+			
+				
+				<h3 id="ConstructNode.StringifyJson">func (*ConstructNode) <a href="/src/target/construct_node.go?s=5220:5278#L109">StringifyJson</a>
+					<a class="permalink" href="#ConstructNode.StringifyJson">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (c *<a href="#ConstructNode">ConstructNode</a>) StringifyJson(obj <a href="/pkg/github.com/awslabs/aws-cdk-go/jsii/">jsii</a>.<a href="/pkg/github.com/awslabs/aws-cdk-go/jsii/#Any">Any</a>) <a href="/pkg/builtin/#string">string</a></pre>
+				
+				
+				
+				
+			
+				
+				<h3 id="ConstructNode.ToTreeString">func (*ConstructNode) <a href="/src/target/construct_node.go?s=5313:5376#L110">ToTreeString</a>
+					<a class="permalink" href="#ConstructNode.ToTreeString">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (c *<a href="#ConstructNode">ConstructNode</a>) ToTreeString(depth *<a href="/pkg/github.com/awslabs/aws-cdk-go/jsii/">jsii</a>.<a href="/pkg/github.com/awslabs/aws-cdk-go/jsii/#Number">Number</a>) <a href="/pkg/builtin/#string">string</a></pre>
+				
+				
+				
+				
+			
+				
+				<h3 id="ConstructNode.TryFindChild">func (*ConstructNode) <a href="/src/target/construct_node.go?s=5406:5466#L111">TryFindChild</a>
+					<a class="permalink" href="#ConstructNode.TryFindChild">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (c *<a href="#ConstructNode">ConstructNode</a>) TryFindChild(path <a href="/pkg/builtin/#string">string</a>) <a href="#IConstruct">IConstruct</a></pre>
+				
+				
+				
+				
+			
+				
+				<h3 id="ConstructNode.Typename">func (*ConstructNode) <a href="/src/target/construct_node.go?s=3274:3315#L87">Typename</a>
+					<a class="permalink" href="#ConstructNode.Typename">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (c *<a href="#ConstructNode">ConstructNode</a>) Typename() <a href="/pkg/builtin/#string">string</a></pre>
+				
+				
+				
+				
+			
+				
+				<h3 id="ConstructNode.UniqueId">func (*ConstructNode) <a href="/src/target/construct_node.go?s=3367:3408#L88">UniqueId</a>
+					<a class="permalink" href="#ConstructNode.UniqueId">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (c *<a href="#ConstructNode">ConstructNode</a>) UniqueId() <a href="/pkg/builtin/#string">string</a></pre>
+				
+				
+				
+				
+			
+				
+				<h3 id="ConstructNode.Unlock">func (*ConstructNode) <a href="/src/target/construct_node.go?s=5500:5532#L112">Unlock</a>
+					<a class="permalink" href="#ConstructNode.Unlock">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (c *<a href="#ConstructNode">ConstructNode</a>) Unlock()</pre>
+				
+				
+				
+				
+			
+				
+				<h3 id="ConstructNode.ValidateTree">func (*ConstructNode) <a href="/src/target/construct_node.go?s=5582:5638#L113">ValidateTree</a>
+					<a class="permalink" href="#ConstructNode.ValidateTree">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func (c *<a href="#ConstructNode">ConstructNode</a>) ValidateTree() []<a href="#ValidationError">ValidationError</a></pre>
+				
+				
+				
+				
+			
+		
+			
+			
+			<h2 id="ConstructNode_Iface">type <a href="/src/target/construct_node.go?s=145:1360#L1">ConstructNode_Iface</a>
+				<a class="permalink" href="#ConstructNode_Iface">&#xb6;</a>
+				
+				
+			</h2>
+			<p>
+ConstructNode_Iface provides the subtyping interfaces for JSII ConstructNode class.
+</p>
+
+			<pre>type ConstructNode_Iface interface {
+    <span class="comment">// Members</span>
+    Children() []<a href="#IConstruct">IConstruct</a>
+    Host() <a href="#Construct_Iface">Construct_Iface</a>
+    Id() <a href="/pkg/builtin/#string">string</a>
+    Locked() <a href="/pkg/builtin/#bool">bool</a>
+    Metadata() []<a href="#MetadataEntry">MetadataEntry</a>
+    Path() <a href="/pkg/builtin/#string">string</a>
+    Typename() <a href="/pkg/builtin/#string">string</a>
+    UniqueId() <a href="/pkg/builtin/#string">string</a>
+    Scope() <a href="#IConstruct">IConstruct</a>
+
+    <span class="comment">// Methods</span>
+    AddChild(child <a href="#IConstruct">IConstruct</a>, childName <a href="/pkg/builtin/#string">string</a>)
+    AddDependency(dependencies ...<a href="#IDependable">IDependable</a>)
+    AddError(message <a href="/pkg/builtin/#string">string</a>)
+    AddInfo(message <a href="/pkg/builtin/#string">string</a>)
+    AddMetadata(typeVal <a href="/pkg/builtin/#string">string</a>, data <a href="/pkg/github.com/awslabs/aws-cdk-go/jsii/">jsii</a>.<a href="/pkg/github.com/awslabs/aws-cdk-go/jsii/#Any">Any</a>, from *<a href="/pkg/builtin/#bool">bool</a>) <span class="comment">// typeVal used instead of &#34;type&#34; param</span>
+    AddWarning(message <a href="/pkg/builtin/#string">string</a>)
+    Ancestors(upTo <a href="#Construct_Iface">Construct_Iface</a>) <a href="#IConstruct">IConstruct</a> <span class="comment">// upTo is optional, optionals of class types are not pointers since Go interface zero value is nil.</span>
+    FindAll(order <a href="#ConstructOrder">ConstructOrder</a>) <a href="#IConstruct">IConstruct</a>
+    FindChild(path <a href="/pkg/builtin/#string">string</a>) <a href="#IConstruct">IConstruct</a>
+    FindDependencies() []<a href="#Dependency">Dependency</a>
+    FindReferences() <a href="#Token">Token</a>
+    GetContext(key <a href="/pkg/builtin/#string">string</a>) <a href="/pkg/github.com/awslabs/aws-cdk-go/jsii/">jsii</a>.<a href="/pkg/github.com/awslabs/aws-cdk-go/jsii/#Any">Any</a>
+    Lock()
+    PrepareTree()
+    RecordReference(refs ...<a href="#Token">Token</a>)
+    RequireContext(key <a href="/pkg/builtin/#string">string</a>) <a href="/pkg/github.com/awslabs/aws-cdk-go/jsii/">jsii</a>.<a href="/pkg/github.com/awslabs/aws-cdk-go/jsii/#Any">Any</a>
+    Required(props <a href="/pkg/github.com/awslabs/aws-cdk-go/jsii/">jsii</a>.<a href="/pkg/github.com/awslabs/aws-cdk-go/jsii/#Any">Any</a>, name <a href="/pkg/builtin/#string">string</a>) <a href="/pkg/github.com/awslabs/aws-cdk-go/jsii/">jsii</a>.<a href="/pkg/github.com/awslabs/aws-cdk-go/jsii/#Any">Any</a>
+    Resolve(obj <a href="/pkg/github.com/awslabs/aws-cdk-go/jsii/">jsii</a>.<a href="/pkg/github.com/awslabs/aws-cdk-go/jsii/#Any">Any</a>) <a href="/pkg/github.com/awslabs/aws-cdk-go/jsii/">jsii</a>.<a href="/pkg/github.com/awslabs/aws-cdk-go/jsii/#Any">Any</a>
+    SetContext(key <a href="/pkg/builtin/#string">string</a>, value <a href="/pkg/github.com/awslabs/aws-cdk-go/jsii/">jsii</a>.<a href="/pkg/github.com/awslabs/aws-cdk-go/jsii/#Any">Any</a>)
+    StringifyJson(obj <a href="/pkg/github.com/awslabs/aws-cdk-go/jsii/">jsii</a>.<a href="/pkg/github.com/awslabs/aws-cdk-go/jsii/#Any">Any</a>) <a href="/pkg/builtin/#string">string</a>
+    ToTreeString(depth *<a href="/pkg/github.com/awslabs/aws-cdk-go/jsii/">jsii</a>.<a href="/pkg/github.com/awslabs/aws-cdk-go/jsii/#Number">Number</a>) <a href="/pkg/builtin/#string">string</a>
+    TryFindChild(path <a href="/pkg/builtin/#string">string</a>) <a href="#IConstruct">IConstruct</a>
+    Unlock()
+    ValidateTree() []<a href="#ValidationError">ValidationError</a>
+    <span class="comment">// contains filtered or unexported methods</span>
+}</pre>
+
+			
+
+			
+
+			
+			
+			
+
+			
+
+			
+		
+			
+			
+			<h2 id="ConstructNode_Override">type <a href="/src/target/construct_node.go?s=1487:1528#L39">ConstructNode_Override</a>
+				<a class="permalink" href="#ConstructNode_Override">&#xb6;</a>
+				
+				
+			</h2>
+			<p>
+ConstructNode_Override provides the interface for overriding methods of a
+generated JSII class within the JSII kernel.
+</p>
+
+			<pre>type ConstructNode_Override interface {
+}</pre>
+
+			
+
+			
+
+			
+			
+			
+
+			
+
+			
+		
+			
+			
+			<h2 id="ConstructOrder">type <a href="/src/target/enums.go?s=13:39#L1">ConstructOrder</a>
+				<a class="permalink" href="#ConstructOrder">&#xb6;</a>
+				
+				
+			</h2>
+			
+			<pre>type ConstructOrder <a href="/pkg/builtin/#string">string</a></pre>
+
+			
+				
+				<pre>const (
+    <span id="BreadthFirst_ConstructOrder">BreadthFirst_ConstructOrder</span> <a href="#ConstructOrder">ConstructOrder</a> = &#34;BreadthFirst&#34;
+    <span id="DepthFirstp_ConstructOrder">DepthFirstp_ConstructOrder</span>  <a href="#ConstructOrder">ConstructOrder</a> = &#34;DepthFirst&#34;
+)</pre>
+			
+
+			
+
+			
+			
+			
+
+			
+
+			
+		
+			
+			
+			<h2 id="Construct_Iface">type <a href="/src/target/construct.go?s=137:438#L1">Construct_Iface</a>
+				<a class="permalink" href="#Construct_Iface">&#xb6;</a>
+				
+				
+			</h2>
+			<p>
+Construct_Iface provides the subtyping interfaces for JSII Construct class.
+</p>
+
+			<pre>type Construct_Iface interface {
+    <span class="comment">// members</span>
+    DependencyRoots() []<a href="#IConstruct">IConstruct</a>
+    Node() <a href="#IConstruct">IConstruct</a>
+
+    <span class="comment">// methods</span>
+    IsConstruct() <a href="/pkg/builtin/#bool">bool</a>
+    Prepare()         <span class="comment">// protected method, must be exposed go has no protected</span>
+    ToString() <a href="/pkg/builtin/#string">string</a> <span class="comment">// override to Go&#39;s &#34;String()&#34; ?</span>
+    Validate() []<a href="/pkg/builtin/#string">string</a>
+    <span class="comment">// contains filtered or unexported methods</span>
+}</pre>
+
+			
+
+			
+
+			
+			
+			
+
+			
+
+			
+		
+			
+			
+			<h2 id="Construct_Overrides">type <a href="/src/target/construct.go?s=562:598#L12">Construct_Overrides</a>
+				<a class="permalink" href="#Construct_Overrides">&#xb6;</a>
+				
+				
+			</h2>
+			<p>
+Construct_Overrides provides the interface for overriding methods of a
+generated JSII class within the JSII kernel.
+</p>
+
+			<pre>type Construct_Overrides interface{}</pre>
+
+			
+
+			
+
+			
+			
+			
+
+			
+
+			
+		
+			
+			
+			<h2 id="Dependency">type <a href="/src/target/types.go?s=77:104#L1">Dependency</a>
+				<a class="permalink" href="#Dependency">&#xb6;</a>
+				
+				
+			</h2>
+			
+			<pre>type Dependency interface{}</pre>
+
+			
+
+			
+
+			
+			
+			
+
+			
+
+			
+		
+			
+			
+			<h2 id="IConstruct">type <a href="/src/target/interfaces.go?s=148:199#L1">IConstruct</a>
+				<a class="permalink" href="#IConstruct">&#xb6;</a>
+				
+				
+			</h2>
+			<p>
+IConstruct is a JSII interface.
+</p>
+
+			<pre>type IConstruct interface {
+    Node() <a href="#ConstructNode">ConstructNode</a>
+}</pre>
+
+			
+
+			
+
+			
+			
+			
+
+			
+
+			
+		
+			
+			
+			<h2 id="IDependable">type <a href="/src/target/interfaces.go?s=49:111#L1">IDependable</a>
+				<a class="permalink" href="#IDependable">&#xb6;</a>
+				
+				
+			</h2>
+			<p>
+IDependable is a JSII interface.
+</p>
+
+			<pre>type IDependable interface {
+    DependencyRoots() []<a href="#IConstruct">IConstruct</a>
+}</pre>
+
+			
+
+			
+
+			
+			
+			
+
+			
+
+			
+		
+			
+			
+			<h2 id="MetadataEntry">type <a href="/src/target/types.go?s=46:76#L1">MetadataEntry</a>
+				<a class="permalink" href="#MetadataEntry">&#xb6;</a>
+				
+				
+			</h2>
+			
+			<pre>type MetadataEntry interface{}</pre>
+
+			
+
+			
+
+			
+			
+			
+
+			
+
+			
+		
+			
+			
+			<h2 id="Root">type <a href="/src/target/root.go?s=357:406#L8">Root</a>
+				<a class="permalink" href="#Root">&#xb6;</a>
+				
+				
+			</h2>
+			<p>
+Root is a JSII class.
+</p>
+
+			<pre>type Root struct {
+    *<a href="#Construct">Construct</a>
+    <span class="comment">// contains filtered or unexported fields</span>
+}
+</pre>
+
+			
+
+			
+
+			
+			
+			
+
+			
+				
+				<h3 id="NewRoot">func <a href="/src/target/root.go?s=448:468#L15">NewRoot</a>
+					<a class="permalink" href="#NewRoot">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func NewRoot() *<a href="#Root">Root</a></pre>
+				<p>
+NewRoot returns an initialized Root.
+</p>
+
+				
+				
+			
+				
+				<h3 id="NewRoot_AsBaseClass">func <a href="/src/target/root.go?s=657:702#L21">NewRoot_AsBaseClass</a>
+					<a class="permalink" href="#NewRoot_AsBaseClass">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func NewRoot_AsBaseClass(jsiiID <a href="/pkg/builtin/#string">string</a>) *<a href="#Root">Root</a></pre>
+				<p>
+NewRoot_AsBaseClass returns an initialized Root initialized as a base type
+extended by another type. Used internally by generated JSII types.
+</p>
+
+				
+				
+			
+				
+				<h3 id="NewRoot_WithOverrides">func <a href="/src/target/root.go?s=956:1014#L30">NewRoot_WithOverrides</a>
+					<a class="permalink" href="#NewRoot_WithOverrides">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func NewRoot_WithOverrides(overrides <a href="#Root_Overrides">Root_Overrides</a>) *<a href="#Root">Root</a></pre>
+				<p>
+NewRoot_WithOverrides returns an initialized Root initialized with
+overrides. Use when creating custom types extending JSII generated types.
+</p>
+
+				
+				
+			
+
+			
+		
+			
+			
+			<h2 id="Root_Iface">type <a href="/src/target/root.go?s=132:178#L1">Root_Iface</a>
+				<a class="permalink" href="#Root_Iface">&#xb6;</a>
+				
+				
+			</h2>
+			<p>
+Root_Iface provides the subtyping interfaces for JSII Root class.
+</p>
+
+			<pre>type Root_Iface interface {
+    <a href="#Construct_Iface">Construct_Iface</a>
+}</pre>
+
+			
+
+			
+
+			
+			
+			
+
+			
+
+			
+		
+			
+			
+			<h2 id="Root_Overrides">type <a href="/src/target/root.go?s=297:330#L4">Root_Overrides</a>
+				<a class="permalink" href="#Root_Overrides">&#xb6;</a>
+				
+				
+			</h2>
+			<p>
+Root_Overrides provides the interface for overriding methods of a generated
+JSII class within the JSII kernel.
+</p>
+
+			<pre>type Root_Overrides interface {
+}</pre>
+
+			
+
+			
+
+			
+			
+			
+
+			
+
+			
+		
+			
+			
+			<h2 id="Token">type <a href="/src/target/types.go?s=105:127#L1">Token</a>
+				<a class="permalink" href="#Token">&#xb6;</a>
+				
+				
+			</h2>
+			
+			<pre>type Token interface{}</pre>
+
+			
+
+			
+
+			
+			
+			
+
+			
+
+			
+		
+			
+			
+			<h2 id="ValidationError">type <a href="/src/target/types.go?s=13:45#L1">ValidationError</a>
+				<a class="permalink" href="#ValidationError">&#xb6;</a>
+				
+				
+			</h2>
+			
+			<pre>type ValidationError interface{}</pre>
+
+			
+
+			
+
+			
+			
+			
+
+			
+
+			
+		
+	
+
+	
+
+
+
+
+
