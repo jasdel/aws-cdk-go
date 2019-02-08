@@ -69,3 +69,7 @@ func NewValidateLambdaFunction(scope cdk.Construct, id string, validateFn Lambda
 	v.Function = lambda
 	return v
 }
+
+func (l *ValidateLambdaFunction) Validate() []string {
+	return l.ValidateFn(l)
+}
