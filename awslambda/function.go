@@ -11,21 +11,25 @@ type FunctionProps interface {
 	Runtime() string
 	Code() AssetCode
 	Handler() string
+	Environment() map[string]jsii.Any
 }
 
 type FunctionProps_ struct {
-	Runtime_ string
-	Code_    AssetCode
-	Handler_ string
+	Runtime_     string
+	Code_        AssetCode
+	Handler_     string
+	Environment_ map[string]jsii.Any
 }
 
-func (f FunctionProps_) Runtime() string { return f.Runtime_ }
-func (f FunctionProps_) Code() AssetCode { return f.Code_ }
-func (f FunctionProps_) Handler() string { return f.Handler_ }
+func (f FunctionProps_) Runtime() string                  { return f.Runtime_ }
+func (f FunctionProps_) Code() AssetCode                  { return f.Code_ }
+func (f FunctionProps_) Handler() string                  { return f.Handler_ }
+func (f FunctionProps_) Environment() map[string]jsii.Any { return f.Environment_ }
 
 type Function_Overrides interface{}
 
 type Function interface {
+	FunctionName() string
 	function_private()
 }
 type Function_ struct {
@@ -55,3 +59,5 @@ func NewFunction_WithOverrides(scope cdk.Construct, id string, props FunctionPro
 		base: jsii.Base{ID: jsiiID},
 	}
 }
+
+func (f *Function_) FunctionName() string { return "" }

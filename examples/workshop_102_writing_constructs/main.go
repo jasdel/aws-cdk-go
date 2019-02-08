@@ -5,6 +5,7 @@ import (
 	"github.com/awslabs/aws-cdk-go/awsdynamodb"
 	"github.com/awslabs/aws-cdk-go/awslambda"
 	"github.com/awslabs/aws-cdk-go/cdk"
+	"github.com/awslabs/aws-cdk-go/jsii"
 )
 
 func main() {
@@ -33,7 +34,7 @@ func addHelloHandlerStack(app cdk.App) {
 	})
 }
 
-func WrapLambdaWithHitCounter(stack cdk.Stack, id string, fn awslambda.Function) awslambda.Function {
+func WrapLambdaWithHitCounter(stack cdk.Stack, id string, downstreamFn awslambda.Function) awslambda.Function {
 	wrapper := cdk.NewConstruct(stack, id)
 
 	table := awsdynamodb.NewTable(wrapper, "Hits")
@@ -46,6 +47,11 @@ func WrapLambdaWithHitCounter(stack cdk.Stack, id string, fn awslambda.Function)
 		Runtime_: awslambda.Runtime_NodeJS810(),  // Execution environment.
 		Code_:    awslambda.Code_Asset("lambda"), // Code loaded from the "lambda" directory.
 		Handler_: "hitcounter.Handler",           // File is "hitcounter", function is "handler.
+		Environment_: map[string]jsii.Any{
+			"DOWNSTREAM_FUNCTION_NAME": downstreamFn.FunctionName(),
+			"HITS_TABLE_NAME":          table.TableName(),
+		},
+		// TODO add environment field
 	})
 
 	return handler

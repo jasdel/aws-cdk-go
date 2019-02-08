@@ -4,6 +4,7 @@ import "github.com/awslabs/aws-cdk-go/cdk"
 
 type Table interface {
 	AddPartitionKey(key PartitionKey)
+	TableName() string
 
 	table_private()
 }
@@ -18,6 +19,7 @@ func NewTable(scope cdk.Construct, id string) *Table_ {
 }
 
 func (t *Table_) AddPartitionKey(key PartitionKey) {}
+func (t *Table_) TableName() string                { return "" }
 
 type PartitionKey interface {
 	Name() string
