@@ -28,11 +28,25 @@ func (f FunctionProps_) Environment() map[string]jsii.Any { return f.Environment
 
 type Function_Overrides interface{}
 
-type Function interface {
+type FunctionBase interface {
+	cdk.Construct
 	FunctionName() string
+}
+type FunctionBase_ struct {
+	cdk.Construct
+	base jsii.Base
+}
+
+func (FunctionBase_) functionBase_private() {}
+
+type Function interface {
+	FunctionBase
+
 	function_private()
 }
 type Function_ struct {
+	FunctionBase
+
 	base jsii.Base
 }
 
@@ -59,5 +73,3 @@ func NewFunction_WithOverrides(scope cdk.Construct, id string, props FunctionPro
 		base: jsii.Base{ID: jsiiID},
 	}
 }
-
-func (f *Function_) FunctionName() string { return "" }
