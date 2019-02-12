@@ -65,6 +65,9 @@ func NewValidateLambdaFunction(scope cdk.Construct, id string, validateFn Lambda
 	return v
 }
 
+// Validate overrides awslambda.Function's Validate method to perform
+// validation on the lambda function during synthesis of the CloudFromation
+// template.
 func (l *ValidateLambdaFunction) Validate() []string {
 	return l.validateFn(l)
 }
