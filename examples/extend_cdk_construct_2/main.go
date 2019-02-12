@@ -80,7 +80,7 @@ func (l *ValidateLambdaFunction) Validate() []string {
 
 	// Use Custom validation if provided
 	if l.validateFn != nil {
-		errs = append(errs, l.validateFn(l)...)
+		errs = append(errs, l.validateFn(l.Function)...)
 	}
 
 	return errs
