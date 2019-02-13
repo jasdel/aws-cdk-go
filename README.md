@@ -6,6 +6,7 @@ Notable Design considerations that may lead to poor customer experience:
 	* Circular package/module references/dependencies.
 	* Type self reference without pointer.
 	* Exported Identifiers starting with "_" character.
+	* Overridden methods with different types
 
 * **Breaking Changes**:
 	* Adding optional parameter to function or method
@@ -21,15 +22,18 @@ of "ToString" for better customer experience.
 JSII for Go will need to add additional new identifiers to the generated
 package from the JSII model. It is possible for these new identifiers added to
 the namespace to collide with JSII modeled identifiers.
-
-Linting may mitigate the risk of name collisions. Alternative naming recovery
-strategies may also provide mitigation for the risk. The JSII for Go generator
-must fail to generate a module if any generated name collides with a modeled
-JSII name, and not appropriate alternative naming strategy is available.
-
-Any alternative naming strategy runs the risk of causing customers to
-experience breaking code changes if a name is added to the JSII model that
-collides with the generated names.
+	* Package scoped:
+		* `<TypeName>Iface` - Go interfaces for class & datatypes
+		* `New<ClassName>` - constructor
+		* `Extend<ClassName>` - constructor for custom Go constructs
+		* `Internal<ClassName>AsBaseClass` - internal constructor for class hierarchy
+		* `<ClassName>_<StaticMethodName>`
+		* `<ClassName>_Get<StaticPropertyName>` - Static property getter
+		* `<ClassName>_Set<StaticPropertyName>` - Static property setter
+		* `<EnumValue><EnumType>` - Enum types
+	* Type scoped (aka JSII Class/interface):
+		* `Get<PropetyName>` - Property getter method
+		* `Set<PropertyName>` - Property setter method
 
 * **Optional Type References**:
 Optional type references require Go to use pointer types for the type
@@ -53,19 +57,16 @@ use empty `interface{}` for the union property or parameter type.
 See `Unions` for implementation and more details.
 
 * **Class Constructors**:
+**TODO**: Update mocks so New<ClassName>() should only be created for
+non-abstract classes.  Customers should use Extend<ClassName>() to extend an
+abstract class within their Go application..
+
 JSII Classes can be labeled as "abstract". In TypeScript this means the class
 cannot be initialized outside of a subclass, (e.g. super). How should JSII
 language bindings allow customers to extend "abstract" classes with custom
-"classes", while also maintaining the "abstract" behavior? 
-
-JSII Class constructors are expected to implicitly forward all parameters
-upstream to their base class's constructor. (Java and .Net)  This implicit
-relationship is fragile and will lead to types that fail to compile if the
-underlying typescript does not follow this patter as well.
-
-A potential workaround for this issue is that the JSII for Go generator
-squashes the class hierarchy down into a flats struct type implementing all
-members and methods of the inheritance tree. Composition would not be possible.
+Constructor functions are generated for each JSII class defined. If the class
+is abstract a New<ClassName> constructor is not generated. The other two
+constructors will always be generated.
 
 See `Classes - Constructors` for implementation and details.
 
