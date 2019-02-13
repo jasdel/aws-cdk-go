@@ -1,16 +1,14 @@
 package cxapi
 
-import "github.com/awslabs/aws-cdk-go/jsii"
-
-type MissingContext interface {
-	Props() map[string]jsii.Any
-	Provider() string
+type MissingContextIface interface {
+	GetProps() map[string]interface{}
+	GetProvider() string
 }
 
-type MissingContext_ struct {
-	Props_    map[string]jsii.Any
-	Provider_ string
+type MissingContext struct {
+	Props    map[string]interface{}
+	Provider string
 }
 
-func (m *MissingContext_) Props() map[string]jsii.Any { return m.Props_ }
-func (m *MissingContext_) Provider() string           { return m.Provider_ }
+func (m *MissingContext) GetProps() map[string]interface{} { return m.Props }
+func (m *MissingContext) GetProvider() string              { return m.Provider }

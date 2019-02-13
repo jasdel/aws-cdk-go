@@ -4,7 +4,7 @@ type Runtime struct {
 	client *Client
 }
 
-var GlobalRuntime *Runtime = &Runtime{
+var GlobalRuntime = &Runtime{
 	client: NewClient(),
 }
 

@@ -6,10 +6,10 @@ import (
 )
 
 // Stack_AnnotatePhysicalName is a stack method on the Stack JSII class.
-func Stack_AnnotatePhysicalName(construct Construct, phyisicalName string) {}
+func Stack_AnnotatePhysicalName(construct ConstructIface, phyisicalName string) {}
 
 // Stack_Find is a stack method on the Stack JSII class.
-func Stack_Find(scope IConstruct) Stack { return nil }
+func Stack_Find(scope IConstruct) StackIface { return nil }
 
 // Stack_IsStack is a stack method on the Stack JSII class.
 func Stack_IsStack(construct IConstruct) bool { return false }
@@ -17,73 +17,71 @@ func Stack_IsStack(construct IConstruct) bool { return false }
 // Stack_TryFind is a stack method on the Stack JSII class.
 func Stack_TryFind(scope IConstruct) *bool { return jsii.B(false) }
 
-// StackProps provides the interface for StackProps_ datatype.
-type StackProps interface {
-	Env() Environment
-	NamingScheme() IAddressingScheme
+// StackProps provides the interface for StackProps datatype.
+type StackPropsIface interface {
+	GetEnv() Environment
+	GetNamingScheme() IAddressingScheme
 }
 
-// StackProps_ are properties.
-type StackProps_ struct {
-	Env_          Environment
-	NamingScheme_ IAddressingScheme
+// StackProps are properties.
+type StackProps struct {
+	Env          EnvironmentIface
+	NamingScheme IAddressingScheme
 }
 
-func (s StackProps_) Env() Environment                { return s.Env_ }
-func (s StackProps_) NamingScheme() IAddressingScheme { return s.NamingScheme_ }
+func (s StackProps) GetEnv() EnvironmentIface           { return s.Env }
+func (s StackProps) GetNamingScheme() IAddressingScheme { return s.NamingScheme }
 
-// Stack provides the subtyping interfaces for JSII Stack class.
-type Stack interface {
-	Construct
+// StackIface provides the subtyping interfaces for JSII Stack class.
+type StackIface interface {
+	ConstructIface
 
-	AddDependency(stack Stack)
-	Dependencies() []Stack
-	FindResource(path string) Resource
-	FormatArn(components ArnComponents) string
-	ParentApp() App
-	ParseArn(arn string, sepIfToken *bool, hasName *bool) ArnComponents
+	AddDependency(stack StackIface)
+	Dependencies() []StackIface
+	FindResource(path string) ResourceIface
+	FormatArn(components ArnComponentsIface) string
+	ParentApp() AppIface
+	ParseArn(arn string, sepIfToken *bool, hasName *bool) ArnComponentsIface
 	RenameLogic(oldId string, newId string)
-	ReportMissingConstext(key string, details cxapi.MissingContext)
+	ReportMissingConstext(key string, details cxapi.MissingContextIface)
 	RequireAccountId(why *string) string
 	RequireRegion(why *string) string
-	ToCloudFormation() jsii.Any
+	ToCloudFormation() interface{}
 
-	stack_private()
+	stackPrivate()
 }
 
-// Stack_Overrides provides the interface for overriding methods of a
-// generated JSII class within the JSII kernel.
-type Stack_Overrides interface{}
+var _ StackIface = (*Stack)(nil)
 
-// Stack_ is a JSII class.
-type Stack_ struct {
-	Construct
+// Stack is a JSII class.
+type Stack struct {
+	*Construct
 
 	base jsii.Base
 }
 
-func (Stack_) stack_private() {}
+func (Stack) stackPrivate() {}
 
 // NewStack returns an initialized Stack.
-func NewStack(scope App, id string, props StackProps) *Stack_ {
-	return NewStack_WithOverrides(scope, id, props, nil)
+func NewStack(scope AppIface, id string, props StackPropsIface) *Stack {
+	return ExtendStack(nil, scope, id, props)
 }
 
-// NewStack_AsBaseClass returns an initialized Stack initialized as a base type
+// InternalNewStackAsBaseClass returns an initialized Stack initialized as a base type
 // extended by another type. Used internally by generated JSII types.
-func NewStack_AsBaseClass(jsiiID string) *Stack_ {
-	return &Stack_{
+func InternalNewStackAsBaseClass(jsiiID string) *Stack {
+	return &Stack{
 		base:      jsii.Base{ID: jsiiID},
-		Construct: NewConstruct_AsBaseClass(jsiiID),
+		Construct: InternalNewConstructAsBaseClass(jsiiID),
 	}
 }
 
-// NewStack_WithOverrides returns an initialized Stack initialized with
+// ExtendStack returns an initialized Stack initialized with
 // overrides. Use when creating custom types extending JSII generated types.
-func NewStack_WithOverrides(scope App, id string, props StackProps, overrides Stack_Overrides) *Stack_ {
+func ExtendStack(overrides StackIface, scope AppIface, id string, props StackPropsIface) *Stack {
 	jsiiID, err := jsii.GlobalRuntime.Client().Create(
 		"jsii$cdk$0.0.0.Stack",
-		[]jsii.Any{
+		[]interface{}{
 			scope, id,
 		},
 		nil,
@@ -91,23 +89,23 @@ func NewStack_WithOverrides(scope App, id string, props StackProps, overrides St
 	if err != nil {
 		panic("how are error handled?" + err.Error())
 	}
-	return &Stack_{
+	return &Stack{
 		base:      jsii.Base{ID: jsiiID},
-		Construct: NewConstruct_AsBaseClass(jsiiID),
+		Construct: InternalNewConstructAsBaseClass(jsiiID),
 	}
 }
 
-func (*Stack_) AddDependency(stack Stack)                 {}
-func (*Stack_) Dependencies() []Stack                     { return nil }
-func (*Stack_) FindResource(path string) Resource         { return nil }
-func (*Stack_) FormatArn(components ArnComponents) string { return "" }
-func (*Stack_) ParentApp() App                            { return nil }
-func (*Stack_) ParseArn(arn string, sepIfToken *bool, hasName *bool) ArnComponents {
+func (*Stack) AddDependency(stack StackIface)                 {}
+func (*Stack) Dependencies() []StackIface                     { return nil }
+func (*Stack) FindResource(path string) ResourceIface         { return nil }
+func (*Stack) FormatArn(components ArnComponentsIface) string { return "" }
+func (*Stack) ParentApp() AppIface                            { return nil }
+func (*Stack) ParseArn(arn string, sepIfToken *bool, hasName *bool) ArnComponentsIface {
 	return nil
 }
-func (*Stack_) Prepare()                                                       {}
-func (*Stack_) RenameLogic(oldId string, newId string)                         {}
-func (*Stack_) ReportMissingConstext(key string, details cxapi.MissingContext) {}
-func (*Stack_) RequireAccountId(why *string) string                            { return "" }
-func (*Stack_) RequireRegion(why *string) string                               { return "" }
-func (*Stack_) ToCloudFormation() jsii.Any                                     { return nil }
+func (*Stack) Prepare()                                                            {}
+func (*Stack) RenameLogic(oldId string, newId string)                              {}
+func (*Stack) ReportMissingConstext(key string, details cxapi.MissingContextIface) {}
+func (*Stack) RequireAccountId(why *string) string                                 { return "" }
+func (*Stack) RequireRegion(why *string) string                                    { return "" }
+func (*Stack) ToCloudFormation() interface{}                                       { return nil }

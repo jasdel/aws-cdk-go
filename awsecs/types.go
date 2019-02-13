@@ -5,51 +5,68 @@ import (
 	"github.com/awslabs/aws-cdk-go/cdk"
 )
 
-type LoadBalancedFargateServiceProps interface {
-	Cluster() Cluster
-	Image() ContainerImage
+type LoadBalancedFargateServicePropsIface interface {
+	GetCluster() ClusterIface
+	GetImage() ContainerImageIface
 }
-type LoadBalancedFargateServiceProps_ struct {
-	Cluster_ Cluster
-	Image_   ContainerImage
-}
-
-func (l LoadBalancedFargateServiceProps_) Cluster() Cluster      { return l.Cluster_ }
-func (l LoadBalancedFargateServiceProps_) Image() ContainerImage { return l.Image_ }
-
-type LoadBalancedFargateService interface {
-	loadBalancedFargateService_private()
+type LoadBalancedFargateServiceProps struct {
+	Cluster ClusterIface
+	Image   ContainerImageIface
 }
 
-type LoadBalancedFargateService_ struct{}
+func (l LoadBalancedFargateServiceProps) GetCluster() ClusterIface      { return l.Cluster }
+func (l LoadBalancedFargateServiceProps) GetImage() ContainerImageIface { return l.Image }
 
-func (LoadBalancedFargateService_) loadBalancedFargateService_private() {}
+type LoadBalancedFargateServiceIface interface {
+	loadBalancedFargateServicePrivate()
+}
 
-func NewLoadBalancedFargateService(scope cdk.Construct, id string, props LoadBalancedFargateServiceProps) *LoadBalancedFargateService_ {
+type LoadBalancedFargateService struct{}
+
+func (LoadBalancedFargateService) loadBalancedFargateServicePrivate() {}
+
+func NewLoadBalancedFargateService(scope cdk.ConstructIface, id string, props LoadBalancedFargateServicePropsIface) *LoadBalancedFargateService {
+	return nil
+}
+func InternalNewLoadBalancedFargateServiceAsBaseClass(jsiiID string) *LoadBalancedFargateService {
+	return nil
+}
+func ExtendLoadBalancedFargateService(overrides LoadBalancedFargateServiceIface, scope cdk.ConstructIface, id string, props LoadBalancedFargateServicePropsIface) *LoadBalancedFargateService {
 	return nil
 }
 
-type ClusterProps interface {
-	Vpc() awsec2.IVpcNetwork
+type ClusterPropsIface interface {
+	GetVpc() awsec2.IVpcNetwork
 }
-type ClusterProps_ struct {
-	Vpc_ awsec2.IVpcNetwork
-}
-
-func (c ClusterProps_) Vpc() awsec2.IVpcNetwork { return c.Vpc_ }
-
-type Cluster interface {
-	cluster_private()
-}
-type Cluster_ struct {
+type ClusterProps struct {
+	Vpc awsec2.IVpcNetwork
 }
 
-func (Cluster_) cluster_private() {}
+func (c ClusterProps) GetVpc() awsec2.IVpcNetwork { return c.Vpc }
 
-func NewCluster(scope cdk.Construct, id string, prop ClusterProps) *Cluster_ {
+type ClusterIface interface {
+	clusterPrivate()
+}
+type Cluster struct {
+}
+
+func (Cluster) clusterPrivate() {}
+
+func NewCluster(scope cdk.ConstructIface, id string, prop ClusterPropsIface) *Cluster {
+	return nil
+}
+func InternalNewClusterAsBaseClass(jsiiID string) *Cluster {
+	return nil
+}
+func ExtendCluster(overrides ClusterIface, scope cdk.ConstructIface, id string, prop ClusterPropsIface) *Cluster {
 	return nil
 }
 
-type ContainerImage interface{}
+type ContainerImageIface interface {
+	containerImagePrivate()
+}
+type ContainerImage struct{}
 
-func ContainerImage_FromDockerHub(name string) ContainerImage { return nil }
+func (ContainerImage) containerImagePrivate() {}
+
+func ContainerImage_FromDockerHub(name string) ContainerImageIface { return nil }

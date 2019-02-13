@@ -6,11 +6,7 @@ type IChainable interface {
 	Id() string
 	StartState() State
 	EndStates() []INextable
-
-	private()
 }
 
 // INextable is a JSII interface
-type INextable interface {
-	private()
-}
+type INextable interface{}

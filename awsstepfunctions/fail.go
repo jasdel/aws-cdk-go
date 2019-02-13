@@ -5,76 +5,72 @@ import (
 	"github.com/awslabs/aws-cdk-go/jsii"
 )
 
-// FailProps provides the interface for FailProps_ datatype.
-type FailProps interface {
-	Comment() *string
-	Error() string
-	Reason() *string
+// FailPropsIface provides the interface for FailProps datatype.
+type FailPropsIface interface {
+	GetComment() *string
+	GetError() string
+	GetReason() *string
 }
 
-// FailProps_ are properties.
-type FailProps_ struct {
-	Comment_ *string
-	Error_   string
-	Reason_  *string
+// FailProps are properties.
+type FailProps struct {
+	Comment *string
+	Error   string
+	Reason  *string
 }
 
-func (d FailProps_) Comment() *string { return jsii.S("") }
-func (d FailProps_) Error() string    { return "" }
-func (d FailProps_) Reason() *string  { return jsii.S("") }
+func (d FailProps) GetComment() *string { return d.Comment }
+func (d FailProps) GetError() string    { return d.Error }
+func (d FailProps) GetReason() *string  { return d.Reason }
 
 // Fail provides the subtyping interfaces for JSII Fail class.
-type Fail interface {
-	State
+type FailIface interface {
+	StateIface
 
-	fail_private()
+	faiPrivate()
 }
 
-// Fail_Overrides provides the interface for overriding methods of a generated
-// JSII class within the JSII kernel.
-type Fail_Overrides interface{}
-
-// Fail_ is a JSII class.
-type Fail_ struct {
-	State
+// Fail is a JSII class.
+type Fail struct {
+	*State
 
 	base jsii.Base
 }
 
-func (*Fail_) fail_private() {}
+func (*Fail) fail_private() {}
 
 // NewFail returns an initialized Fail.
-func NewFail(scope cdk.Construct, id string, props FailProps) *Fail_ {
-	return NewFail_WithOverrides(scope, id, props, nil)
+func NewFail(scope cdk.ConstructIface, id string, props FailPropsIface) *Fail {
+	return ExtendFail(nil, scope, id, props)
 }
 
-// NewFail_AsBaseClass returns an initialized Fail initialized as a base type
-// extended by another type. Used internally by generated JSII types.
-func NewFail_AsBaseClass(jsiiID string) *Fail_ {
-	return &Fail_{
+// InternalNewFailAsBaseClass returns an initialized Fail initialized as a base
+// type extended by another type. Used internally by generated JSII types.
+func InternalNewFailAsBaseClass(jsiiID string) *Fail {
+	return &Fail{
 		base:  jsii.Base{ID: jsiiID},
-		State: NewState_AsBaseClass(jsiiID),
+		State: InternalNewStateAsBaseClass(jsiiID),
 	}
 }
 
-// NewFail_WithOverrides returns an initialized Fail initialized with
-// overrides. Use when creating custom types extending JSII generated types.
-func NewFail_WithOverrides(scope cdk.Construct, id string, props FailProps, overrides Fail_Overrides) *Fail_ {
+// ExtendFail returns an initialized Fail initialized with overrides. Use when
+// creating custom types extending JSII generated types.
+func ExtendFail(overrides FailIface, scope cdk.ConstructIface, id string, props FailPropsIface) *Fail {
 	jsiiID, err := jsii.GlobalRuntime.Client().Create(
 		"jsii$awsstepfunctions$0.0.0.Fail",
-		[]jsii.Any{},
+		[]interface{}{},
 		overrides,
 	)
 	if err != nil {
 		panic("how are error handled?" + err.Error())
 	}
-	return &Fail_{
+	return &Fail{
 		base:  jsii.Base{ID: jsiiID},
-		State: NewState_AsBaseClass(jsiiID),
+		State: InternalNewStateAsBaseClass(jsiiID),
 	}
 }
 
-func (c *Fail_) EndStates() []INextable {
+func (c *Fail) EndStates() []INextable {
 	result, err := jsii.GlobalRuntime.Client().Get(c.base.ID, "endStates")
 	if err != nil {
 		panic("how are error handled?" + err.Error())
@@ -84,7 +80,7 @@ func (c *Fail_) EndStates() []INextable {
 	return nil
 }
 
-func (c *Fail_) ToStateJson() jsii.Any {
+func (c *Fail) ToStateJson() interface{} {
 	result, err := jsii.GlobalRuntime.Client().Get(c.base.ID, "toStateJson")
 	if err != nil {
 		panic("how are error handled?" + err.Error())

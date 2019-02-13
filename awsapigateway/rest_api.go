@@ -5,26 +5,26 @@ import (
 	"github.com/awslabs/aws-cdk-go/jsii"
 )
 
-type RestApiProps interface {
+type RestApiPropsIface interface {
+	ResourceOptionsIface
+
+	GetApiKeySourceType() ApiKeySourceTypeIface
+}
+
+// RestApiProps are properties.
+type RestApiProps struct {
 	ResourceOptions
 
-	restApiProps_Private()
+	ApiKeySourceType ApiKeySourceTypeIface
 }
 
-// RestApiProps_ are properties.
-type RestApiProps_ struct {
-	ResourceOptions_
+func (r RestApiProps) GetApiKeySourceType() ApiKeySourceTypeIface { return r.ApiKeySourceType }
 
-	ApiKeySourceType ApiKeySourceType
-}
+// RestApiIface provides the subtyping interfaces for JSII RestApi class.
+type RestApiIface interface {
+	cdk.ConstructIface
 
-func (RestApiProps_) restApiProps_Private() {}
-
-// RestApi provides the subtyping interfaces for JSII RestApi class.
-type RestApi interface {
-	cdk.Construct
-
-	restApi_private()
+	restApiPrivate()
 }
 
 // RestApi_Overrides provides the interface for overriding methods of a
@@ -32,42 +32,43 @@ type RestApi interface {
 type RestApi_Overrides interface {
 }
 
-// RestApi_ is a JSII class.
-type RestApi_ struct {
-	cdk.Construct
+// RestApi is a JSII class.
+type RestApi struct {
+	*cdk.Construct
 
 	base jsii.Base
 }
 
-func (RestApi_) restApi_private() {}
+func (RestApi) restApiPrivate() {}
 
 // NewRestApi returns an initialized RestApi.
-func NewRestApi(scope cdk.Construct, id string, props RestApiProps_) *RestApi_ {
-	return NewRestApi_WithOverrides(scope, id, props, nil)
+func NewRestApi(scope cdk.ConstructIface, id string, props RestApiPropsIface) *RestApi {
+	return ExtendRestApi(nil, scope, id, props)
 }
 
-// NewRestApi_AsBaseClass returns an initialized RestApi initialized as a base type
-// extended by another type. Used internally by generated JSII types.
-func NewRestApi_AsBaseClass(jsiiID string) *RestApi_ {
-	return &RestApi_{
+// InternalNewRestApiAsBaseClass returns an initialized RestApi initialized as
+// a base type extended by another type. Used internally by generated JSII
+// types.
+func InternalNewRestApiAsBaseClass(jsiiID string) *RestApi {
+	return &RestApi{
 		base:      jsii.Base{ID: jsiiID},
-		Construct: cdk.NewConstruct_AsBaseClass(jsiiID),
+		Construct: cdk.InternalNewConstructAsBaseClass(jsiiID),
 	}
 }
 
 // NewRestApi_WithOverrides returns an initialized RestApi initialized with
 // overrides. Use when creating custom types extending JSII generated types.
-func NewRestApi_WithOverrides(scope cdk.Construct, id string, props RestApiProps_, overrides RestApi_Overrides) *RestApi_ {
+func ExtendRestApi(overrides RestApiIface, scope cdk.ConstructIface, id string, props RestApiPropsIface) *RestApi {
 	jsiiID, err := jsii.GlobalRuntime.Client().Create(
 		"jsii$awsapigateway$0.0.0.RestApi",
-		[]jsii.Any{},
+		[]interface{}{},
 		overrides,
 	)
 	if err != nil {
 		panic("how are error handled?" + err.Error())
 	}
-	return &RestApi_{
+	return &RestApi{
 		base:      jsii.Base{ID: jsiiID},
-		Construct: cdk.NewConstruct_AsBaseClass(jsiiID),
+		Construct: cdk.InternalNewConstructAsBaseClass(jsiiID),
 	}
 }

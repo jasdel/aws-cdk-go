@@ -6,53 +6,50 @@ import (
 	"github.com/awslabs/aws-cdk-go/jsii"
 )
 
-type LambdaRestApiProps interface {
-	Handler() awslambda.IFunction
+type LambdaRestApiPropsIface interface {
+	GetHandler() awslambda.IFunction
 }
 
-type LambdaRestApiProps_ struct {
-	Handler_ awslambda.IFunction
+type LambdaRestApiProps struct {
+	Handler awslambda.IFunction
 }
 
-func (l LambdaRestApiProps_) Handler() awslambda.IFunction { return l.Handler_ }
+func (l LambdaRestApiProps) GetHandler() awslambda.IFunction { return l.Handler }
 
-type LambdaRestApi interface {
-	RestApi
+type LambdaRestApiIface interface {
+	RestApiIface
 
-	lambdaRestApi_private()
+	lambdaRestApiPrivate()
 }
 
-type LambdaRestApi_Overrides interface {
-}
-
-type LambdaRestApi_ struct {
-	RestApi
+type LambdaRestApi struct {
+	*RestApi
 
 	base jsii.Base
 }
 
-func (*LambdaRestApi_) lambdaRestApi_private() {}
+func (*LambdaRestApi) lambdaRestApi_private() {}
 
-func NewLambdaRestApi(scope cdk.Construct, id string, props LambdaRestApiProps) *LambdaRestApi_ {
-	return NewLambdaRestApi_WithOverrides(scope, id, props, nil)
+func NewLambdaRestApi(scope cdk.ConstructIface, id string, props LambdaRestApiPropsIface) *LambdaRestApi {
+	return ExtendLambdaRestApi(nil, scope, id, props)
 }
-func NewLambdaRestApi_AsBaseClass(jsiiID string) *LambdaRestApi_ {
-	return &LambdaRestApi_{
+func NewLambdaRestApi_AsBaseClass(jsiiID string) *LambdaRestApi {
+	return &LambdaRestApi{
 		base:    jsii.Base{ID: jsiiID},
-		RestApi: NewRestApi_AsBaseClass(jsiiID),
+		RestApi: InternalNewRestApiAsBaseClass(jsiiID),
 	}
 }
-func NewLambdaRestApi_WithOverrides(scope cdk.Construct, id string, props LambdaRestApiProps, overrides LambdaRestApi_Overrides) *LambdaRestApi_ {
+func ExtendLambdaRestApi(overrides LambdaRestApiIface, scope cdk.ConstructIface, id string, props LambdaRestApiPropsIface) *LambdaRestApi {
 	jsiiID, err := jsii.GlobalRuntime.Client().Create(
 		"jsii$awsapigateway$0.0.0.LambdaRestApi",
-		[]jsii.Any{},
+		[]interface{}{},
 		overrides,
 	)
 	if err != nil {
 		panic("how are error handled?" + err.Error())
 	}
-	return &LambdaRestApi_{
+	return &LambdaRestApi{
 		base:    jsii.Base{ID: jsiiID},
-		RestApi: NewRestApi_AsBaseClass(jsiiID),
+		RestApi: InternalNewRestApiAsBaseClass(jsiiID),
 	}
 }

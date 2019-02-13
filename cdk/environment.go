@@ -1,16 +1,16 @@
 package cdk
 
-// Environment provides the interface for Environment_ datatype.
-type Environment interface {
-	Account() *string
-	Region() *string
+// EnvironmentIface provides the interface for Environment_ datatype.
+type EnvironmentIface interface {
+	GetAccount() *string
+	GetRegion() *string
 }
 
-// Environment_ are properties.
-type Environment_ struct {
-	Account_ *string
-	Region_  *string
+// Environment are properties.
+type Environment struct {
+	Account *string
+	Region  *string
 }
 
-func (d *Environment_) Account() *string { return d.Account_ }
-func (d *Environment_) Region() *string  { return d.Region_ }
+func (d *Environment) GetAccount() *string { return d.Account }
+func (d *Environment) GetRegion() *string  { return d.Region }

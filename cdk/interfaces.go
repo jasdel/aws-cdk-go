@@ -7,9 +7,10 @@ type IDependable interface {
 
 // IConstruct is a JSII interface.
 type IConstruct interface {
-	Node() ConstructNode
+	Node() ConstructNodeIface
 }
 
+// IAddressingScheme is a JSII interface.
 type IAddressingScheme interface {
-	AlocateAddress(addressComponents []string) string
+	AlocateAddress([]string) string
 }

@@ -1,11 +1,11 @@
 package cdk
 
-type ValidationError interface{}
-type MetadataEntry interface{}
-type Dependency interface{}
-type Token interface{}
+type ValidationErrorIface interface{}
+type MetadataEntryIface interface{}
+type DependencyIface interface{}
+type TokenIface interface{}
 
-type Resource interface{}
-type Resource_ struct{}
+type ResourceIface interface{}
+type Resource struct{}
 
-type ArnComponents interface{}
+type ArnComponentsIface interface{}

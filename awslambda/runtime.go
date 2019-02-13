@@ -1,14 +1,26 @@
 package awslambda
 
-type Runtime interface{}
-type Runtime_ struct{}
+type RuntimeIface interface {
+	runtimePrivate()
+}
+type Runtime struct{}
+
+func (Runtime) runtimePrivate() {}
 
 func Runtime_NodeJS810() string { return "" }
 
-type Code interface{}
-type Code_ struct{}
+type CodeIface interface {
+	codePrivate()
+}
+type Code struct{}
 
-func Code_Asset(path string) AssetCode { return nil }
+func (Code) codePrivate() {}
 
-type AssetCode interface{}
-type AssetCode_ struct{}
+type AssetCodeIface interface {
+	assetCodePrivate()
+}
+type AssetCode struct{}
+
+func (AssetCode) assetCodePrivate() {}
+
+func Code_Asset(path string) AssetCodeIface { return nil }

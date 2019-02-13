@@ -28,7 +28,7 @@ func ExampleCustomState() {
 
 // CustomState extends CDK AWS StepFunction's State construct.
 type CustomState struct {
-	awsstepfunctions.State
+	*awsstepfunctions.State
 }
 
 // NewCustomState returns an initialized CustomState value with the underlying
@@ -41,7 +41,7 @@ func NewCustomState(scope cdk.Construct, id string) *CustomState {
 
 	// Create the extended Base class with the method overrides that
 	// CustomState will provide the implementation for.
-	state := awsstepfunctions.NewState_WithOverrides(scope, id, awsstepfunctions.StateProps{}, custState)
+	state := awsstepfunctions.ExtendState(custState, scope, id, nil)
 
 	// Update custState's State value so that the underlying State construct value can be used for
 	custState.State = state

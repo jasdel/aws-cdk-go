@@ -2,37 +2,47 @@ package awsdynamodb
 
 import "github.com/awslabs/aws-cdk-go/cdk"
 
-type Table interface {
-	AddPartitionKey(key PartitionKey)
+type TableIface interface {
+	cdk.ConstructIface
+
+	AddPartitionKey(key PartitionKeyIface)
 	TableName() string
 
-	table_private()
+	tablePrivate()
 }
 
-type Table_ struct {
+type Table struct {
+	*cdk.Construct
 }
 
-func (Table_) table_private() {}
+func (Table) tablePrivate() {}
 
-func NewTable(scope cdk.Construct, id string) *Table_ {
+func NewTable(scope cdk.ConstructIface, id string) *Table {
+	return nil
+}
+func InternalNewTableAsBaseClass(jsiiID string) *Table {
+	return nil
+}
+func ExtendTable(overrides TableIface, scope cdk.ConstructIface, id string) *Table {
 	return nil
 }
 
-func (t *Table_) AddPartitionKey(key PartitionKey) {}
-func (t *Table_) TableName() string                { return "" }
+func (t *Table) AddPartitionKey(key PartitionKeyIface) {}
+func (t *Table) TableName() string                     { return "" }
 
-type PartitionKey interface {
-	Name() string
-	Type() AttributeType
+type PartitionKeyIface interface {
+	GetName() string
+	GetType() AttributeTypeIface
 }
-type PartitionKey_ struct {
-	Name_ string
-	Type_ AttributeType
+type PartitionKey struct {
+	Name string
+	Type AttributeTypeIface
 }
 
-func (p PartitionKey_) Name() string        { return p.Name_ }
-func (p PartitionKey_) Type() AttributeType { return p.Type_ }
+func (p PartitionKey) GetName() string             { return p.Name }
+func (p PartitionKey) GetType() AttributeTypeIface { return p.Type }
 
-type AttributeType interface{}
+type AttributeTypeIface interface{}
+type AttributeType struct{}
 
-func AttributeType_String() AttributeType { return nil }
+func AttributeType_String() AttributeTypeIface { return nil }
