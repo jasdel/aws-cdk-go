@@ -5,91 +5,85 @@ import (
 	"github.com/awslabs/aws-cdk-go/jsii"
 )
 
-// StateProps are properties.
-//
-// TODO can this be a structure? Does the JSII for go have enough information
-// to make this determination?
+type StatePropsIface interface {
+	GetComment() *string
+	GetInputPath() *string
+}
+
 type StateProps struct {
 	Comment   *string
 	InputPath *string
 	//...
 }
 
-// State provides the subtyping interface for JSII State_ class.
-type State interface {
+func (s StateProps) GetComment() *string   { return s.Comment }
+func (s StateProps) GetInputPath() *string { return s.InputPath }
+
+// State provides the subtyping interface for JSII State class.
+type StateIface interface {
 	// JSII for Go generator must generate Go interfaces for a JSII class with
 	// extended classes in mind.
-	cdk.Construct
+	cdk.ConstructIface
 
-	// State_ properties
-	StartState() State
-	EndStates() []INextable // Must be overridden
-	ToStateJson() jsii.Any  // Must be overridden
+	// State properties
+	StartState() StateIface
+	EndStates() []INextable   // Must be overridden
+	ToStateJson() interface{} // Must be overridden
 
-	// State_ Methods
+	// State Methods
 	//...
 
-	state_private()
+	statePrivate()
 }
 
-// State_Overrides provides the interface for overriding methods of a generated
-// JSII class within the JSII kernel.
-type State_Overrides interface {
-	// Classes with abstract members and methods allow subclasses to extend
-	// (aka replace) those members and methods. Need to provide a way for sub
-	// classes to know which members can be extended.
-	EndStates() []INextable
-	ToStateJson() jsii.Any
-}
-
-// State_ is a JSII class.
-type State_ struct {
-	cdk.Construct
+// State is a JSII class.
+type State struct {
+	*cdk.Construct
 
 	base jsii.Base
 }
 
-func (*State_) state_private() {}
+func (*State) state_private() {}
 
-// NewState returns an initialized State_.
+// NewState returns an initialized State.
 //
-// State_ is supposed to be an abstract class, which means that its not
+// State is supposed to be an abstract class, which means that its not
 // supposed to be created via its constructor directly. What does this mean
-// for Go? How should custom sub classes of State_ be created?
+// for Go? How should custom sub classes of State be created?
 //
 // TODO: should this be private, should there be a flag on the public,
-// what if cross pkg constructs want to initialize a State_?
-func NewState(scope cdk.Construct, id string, props StateProps) *State_ {
-	return NewState_WithOverrides(scope, id, props, nil)
+// what if cross pkg constructs want to initialize a State?
+func NewState(scope cdk.Construct, id string, props StatePropsIface) *State {
+	return ExtendState(nil, scope, id, props)
 }
 
-// NewState_AsBaseClass returns an initialized State_ initialized as a base type
-// extended by another type. Used internally by generated JSII types.
-func NewState_AsBaseClass(jsiiID string) *State_ {
-	return &State_{
+// InternalNewStateAsBaseClass returns an initialized State initialized as a
+// base type extended by another type. Used internally by generated JSII types.
+func InternalNewStateAsBaseClass(jsiiID string) *State {
+	return &State{
 		base:      jsii.Base{ID: jsiiID},
-		Construct: cdk.NewConstruct_AsBaseClass(jsiiID),
+		Construct: cdk.InternalNewConstructAsBaseClass(jsiiID),
 	}
 }
 
-// NewState_WithOverrides returns an initialized State_ initialized with
-// overrides. Use when creating custom types extending JSII generated types.
-func NewState_WithOverrides(scope cdk.Construct, id string, props StateProps, overrides State_Overrides) *State_ {
+// ExtendState returns an initialized State initialized with overrides. Use
+// when creating custom types extending JSII generated types.
+func ExtendState(overrides StateIface, scope cdk.Construct, id string, props StatePropsIface) *State {
 	jsiiID, err := jsii.GlobalRuntime.Client().Create(
 		"jsii$awsstepfunctions$0.0.0.State",
-		[]jsii.Any{},
+		[]interface{}{},
 		overrides,
 	)
 	if err != nil {
 		panic("how are error handled?" + err.Error())
 	}
-	return &State_{
+	return &State{
 		base:      jsii.Base{ID: jsiiID},
-		Construct: cdk.NewConstruct_AsBaseClass(jsiiID),
+		Construct: cdk.InternalNewConstructAsBaseClass(jsiiID),
 	}
 }
 
-func (c *State_) StartState() State {
+func (c *State) StartState() StateIface {
 	result, err := jsii.GlobalRuntime.Client().Get(c.base.ID, "startStates")
 	if err != nil {
 		panic("how are error handled?" + err.Error())
@@ -99,10 +93,10 @@ func (c *State_) StartState() State {
 	return nil
 }
 
-func (c *State_) EndStates() []INextable {
-	panic("State_.EndStates implementation must be provided")
+func (c *State) EndStates() []INextable {
+	panic("State.EndStates implementation must be provided")
 }
 
-func (c *State_) ToStateJson() jsii.Any {
-	panic("State_.ToStateJson implementation must be provided")
+func (c *State) ToStateJson() interface{} {
+	panic("State.ToStateJson implementation must be provided")
 }

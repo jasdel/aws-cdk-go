@@ -1,8 +1,15 @@
 package awsapigateway
 
-type ResourceOptions interface{}
+type ResourceOptionsIface interface {
+	resourceOptionsIfacePrivate()
+}
+type ResourceOptions struct{}
 
-type ResourceOptions_ struct{}
+func (ResourceOptions) resourceOptionsIfacePrivate() {}
 
-type ApiKeySourceType interface{}
-type ApiKeySourceType_ struct{}
+type ApiKeySourceTypeIface interface {
+	apiKeySourceTypeIfacePrivate()
+}
+type ApiKeySourceType struct{}
+
+func (ApiKeySourceType) apiKeySourceTypeIfacePrivate() {}

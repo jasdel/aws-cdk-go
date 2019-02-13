@@ -14,22 +14,22 @@ func main() {
 	app.Run()
 }
 
-func addHandlerStack(app cdk.App) {
+func addHandlerStack(app cdk.AppIface) {
 	stack := cdk.NewStack(app, "MyHandlerStack", nil)
 
 	// Custom Lambda Function construct with support for specifying a custom
 	// validator that will be used when the CDK construct is synthesized into a
 	// CloudFormation template.
 	helloFn := NewValidateLambdaFunction(stack, "HelloHandler", ValidateLambdaFunctionProps{
-		FuncProps: awslambda.FunctionProps_{
-			Runtime_: awslambda.Runtime_NodeJS810(),  // Execution environment.
-			Code_:    awslambda.Code_Asset("lambda"), // Code loaded from the "lambda" directory.
-			Handler_: "hello.Handler",                // File is "hello", function is "handler.
+		FuncProps: awslambda.FunctionProps{
+			Runtime: awslambda.Runtime_NodeJS810(),  // Execution environment.
+			Code:    awslambda.Code_Asset("lambda"), // Code loaded from the "lambda" directory.
+			Handler: "hello.Handler",                // File is "hello", function is "handler.
 		},
 		// Create a validator function that will be used by ValidateLambdaFunction
 		// when the lambda function CDK construct is generated into A
 		// CloudFormation template
-		Validate: func(fn awslambda.Function) []string {
+		Validate: func(fn awslambda.FunctionIface) []string {
 			if fn.FunctionName() != "HelloHandler" {
 				return []string{"Wrong name for handler"}
 			}
@@ -38,35 +38,35 @@ func addHandlerStack(app cdk.App) {
 	})
 
 	// Defines an API Gateway REST API resource backed by our "hello" function.
-	awsapigateway.NewLambdaRestApi(stack, "Endpoint", awsapigateway.LambdaRestApiProps_{
-		Handler_: helloFn,
+	awsapigateway.NewLambdaRestApi(stack, "Endpoint", awsapigateway.LambdaRestApiProps{
+		Handler: helloFn,
 	})
 }
 
 // ValidateLambdaFunctionProps provides property options.
 type ValidateLambdaFunctionProps struct {
-	FuncProps awslambda.FunctionProps
-	Validate  func(awslambda.Function) []string
+	FuncProps awslambda.FunctionPropsIface
+	Validate  func(awslambda.FunctionIface) []string
 }
 
 // ValidateLambdaFunction extends the awslambda.Funtion CDK construct with
 // custom validation that will be used during generation of the CloudFromation
 // template.
 type ValidateLambdaFunction struct {
-	awslambda.Function
+	*awslambda.Function
 
-	validateFn func(awslambda.Function) []string
+	validateFn func(awslambda.FunctionIface) []string
 }
 
 // NewValidateLambdaFunction returns a ValidateLambdaFunction extending the
 // awslambda.Function CDK construct. The custom validator will be used when
 // ValidateLambdaFunction's Validate method is invoked within the CDK runtime.
-func NewValidateLambdaFunction(scope cdk.Construct, id string, props ValidateLambdaFunctionProps) *ValidateLambdaFunction {
+func NewValidateLambdaFunction(scope cdk.ConstructIface, id string, props ValidateLambdaFunctionProps) *ValidateLambdaFunction {
 	v := &ValidateLambdaFunction{
 		validateFn: props.Validate,
 	}
 
-	lambda := awslambda.NewFunction_WithOverrides(scope, id, props.FuncProps, v)
+	lambda := awslambda.ExtendFunction(v, scope, id, props.FuncProps)
 
 	v.Function = lambda
 	return v

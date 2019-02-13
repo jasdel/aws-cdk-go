@@ -14,16 +14,16 @@ func main() {
 	app.Run()
 }
 
-func addECSStack(app cdk.App, id string, stackProps cdk.StackProps) {
+func addECSStack(app cdk.AppIface, id string, stackProps cdk.StackPropsIface) {
 	stack := cdk.NewStack(app, id, stackProps)
 
 	vpcnet := awsec2.NewVpcNetwork(stack, "VPC")
-	cluster := awsecs.NewCluster(stack, "Cluster", awsecs.ClusterProps_{
-		Vpc_: vpcnet,
+	cluster := awsecs.NewCluster(stack, "Cluster", awsecs.ClusterProps{
+		Vpc: vpcnet,
 	})
 
-	awsecs.NewLoadBalancedFargateService(stack, "Fargate", awsecs.LoadBalancedFargateServiceProps_{
-		Cluster_: cluster,
-		Image_:   awsecs.ContainerImage_FromDockerHub("amazon/amazon-ecs-sample"),
+	awsecs.NewLoadBalancedFargateService(stack, "Fargate", awsecs.LoadBalancedFargateServiceProps{
+		Cluster: cluster,
+		Image:   awsecs.ContainerImage_FromDockerHub("amazon/amazon-ecs-sample"),
 	})
 }

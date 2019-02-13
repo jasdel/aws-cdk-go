@@ -49,8 +49,5 @@ func (Bool) JSIIBool() {}
 // JSON represents a JSII defined Json type.
 type JSON struct{}
 
-// JSIIJSON indentifies the type as a JSII Json for interfaces.
+// JSIIJSON identifies the type as a JSII Json for interfaces.
 func (JSON) JSIIJSON() {}
-
-// Any represents a JSII defined Any type.
-type Any interface{}

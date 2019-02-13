@@ -4,14 +4,20 @@ import "github.com/awslabs/aws-cdk-go/cdk"
 
 type IVpcNetwork interface{}
 
-type VpcNetwork interface {
+type VpcNetworkIface interface {
 	vpcNetwork_private()
 }
-type VpcNetwork_ struct {
+type VpcNetwork struct {
 }
 
-func (VpcNetwork_) vpcNetwork_private() {}
+func (VpcNetwork) vpcNetworkPrivate() {}
 
-func NewVpcNetwork(scope cdk.Construct, id string) *VpcNetwork_ {
+func NewVpcNetwork(scope cdk.ConstructIface, id string) *VpcNetwork {
+	return nil
+}
+func InternalNewVpcNetworkAsBaseClass(jsiiID string) *VpcNetwork {
+	return nil
+}
+func ExtendVpcNetwork(overrides VpcNetworkIface, scope cdk.ConstructIface, id string) *VpcNetwork {
 	return nil
 }
