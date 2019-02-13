@@ -29,7 +29,7 @@ func addHandlerStack(app cdk.AppIface) {
 		// Create a validator function that will be used by ValidateLambdaFunction
 		// when the lambda function CDK construct is generated into A
 		// CloudFormation template
-		Validate: func(fn awslambda.FunctionIface) []string {
+		Validate: func(fn *awslambda.Function) []string {
 			if fn.FunctionName() != "HelloHandler" {
 				return []string{"Wrong name for handler"}
 			}
@@ -45,8 +45,8 @@ func addHandlerStack(app cdk.AppIface) {
 
 // ValidateLambdaFunctionProps provides property options.
 type ValidateLambdaFunctionProps struct {
-	FuncProps awslambda.FunctionPropsIface
-	Validate  func(awslambda.FunctionIface) []string
+	FuncProps awslambda.FunctionProps
+	Validate  func(*awslambda.Function) []string
 }
 
 // ValidateLambdaFunction extends the awslambda.Funtion CDK construct with
@@ -55,7 +55,7 @@ type ValidateLambdaFunctionProps struct {
 type ValidateLambdaFunction struct {
 	*awslambda.Function
 
-	validateFn func(awslambda.FunctionIface) []string
+	validateFn func(*awslambda.Function) []string
 }
 
 // NewValidateLambdaFunction returns a ValidateLambdaFunction extending the
