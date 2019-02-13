@@ -36,10 +36,11 @@ func addHelloHandlerStack(app cdk.AppIface) {
 func WrapLambdaWithHitCounter(stack cdk.StackIface, id string, downstreamFn awslambda.FunctionIface) *awslambda.Function {
 	wrapper := cdk.NewConstruct(stack, id)
 
-	table := awsdynamodb.NewTable(wrapper, "Hits")
-	table.AddPartitionKey(awsdynamodb.PartitionKey{
-		Name: "path",
-		Type: awsdynamodb.AttributeType_String(),
+	table := awsdynamodb.NewTable(wrapper, "Hits", awsdynamodb.TableProps{
+		PartitionKey: awsdynamodb.Attribute{
+			Name: "path",
+			Type: awsdynamodb.AttributeType_String(),
+		},
 	})
 
 	handler := awslambda.NewFunction(wrapper, "HitCounterHandler", awslambda.FunctionProps{
