@@ -49,7 +49,7 @@ type ValidateLambdaFunctionProps struct {
 	Validate  func(*awslambda.Function) []string
 }
 
-// ValidateLambdaFunction extends the awslambda.Funtion CDK construct with
+// ValidateLambdaFunction extends the awslambda.Function CDK construct with
 // custom validation that will be used during generation of the CloudFromation
 // template.
 type ValidateLambdaFunction struct {
