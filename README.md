@@ -263,10 +263,11 @@ suffixed with `Iface`.
 
 #### Class constructor
 
-JSII Class Constructor:
-	* `New<ClassName>` - Public constructor the user would use to create a new instance of this JSII proxy type.
-	* `InternalNew<ClassName>AsBaseClass` - Internally used by the JSII for Go generated proxy types to initialize extended JSII classes.
-	* `Extend<ClassName>` - Public constructor for user to associate their custom Go type's methods as overriding methods defined by the JSII proxy type. This allows customers to override JSII class methods.
+**TODO**: fill out this section with reasoning about why the three constructors are needed.
+
+* `New<ClassName>` - Public constructor the user would use to create a new instance of this JSII proxy type.
+* `InternalNew<ClassName>AsBaseClass` - Internally used by the JSII for Go generated proxy types to initialize extended JSII classes.
+* `Extend<ClassName>` - Public constructor for user to associate their custom Go type's methods as overriding methods defined by the JSII proxy type. This allows customers to override JSII class methods.
 
 #### Class static methods and constant properties
 
